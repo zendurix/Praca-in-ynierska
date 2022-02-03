@@ -47,7 +47,7 @@ Jednym z najbardziej popularnych przykładów nowoczesnych roguelike-ów jest gr
 
 Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnei generowanymi mapami, oraz omówienie użytych metod generacji map. \\
 
-Struktura pracy jest następująca: W rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę z gatunku roguelike stworzoną na potrzeby niniejszej pracy, w rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
+Struktura pracy jest następująca: W rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę roguelike stworzoną na potrzeby niniejszej pracy, w rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
 
 \clearpage
 
@@ -75,7 +75,7 @@ Opisując własne dokonania, stosuje się formę bezosobową w czasie przeszłym
 
 \section{Charakterystyka porównawcza gier roguelike}
 
-W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac. Gatunek roguelike od swoich początkowych nie jest mocno popularnym gatunkiem z powodu trudnej rozgrywki i sterowania oraz prymitywnej oprawy graficznej. Powstały jednak popularne gry, które zaczerpują z gatunku tylko niektóre elementy, co w niektórych przypadka oznacza płynną, prostszą rozgrywkę z elementami roguelike.
+W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac. Gatunek roguelike od swoich początków nie jest mocno popularnym gatunkiem z powodu trudnej rozgrywki, skomplikowanego sterowania oraz prymitywnej oprawy graficznej. Powstały jednak popularne gry, które zaczerpują z gatunku tylko niektóre elementy, co w niektórych przypadka oznacza płynną, prostszą rozgrywkę z elementami roguelike.
 
 \subsection{Rogue}
 
@@ -132,7 +132,7 @@ Jednym z głównych wyróżników Caves of Qud na tle innych gier tego typu jest
 \end{figure}
 \FloatBarrier
 
-Podobnie jak w grze Rogue tutaj również do poruszania się używana jest klawiatura numeryczne i klawisze liter do dostępu do ekwipunku, listy zadań i tym podobne, lecz Caves of Qud umożliwia też granie wyłącznie za pomocą myszki. Gra oferuje bardziej przejrzystę grafikę typu pixel art co przedstawiono na rysunku \ref{CoQ:sc3}.
+Podobnie jak w grze Rogue tutaj również do poruszania się używana jest klawiatura numeryczne i klawisze liter do dostępu do ekwipunku, listy zadań i tym podobne, lecz Caves of Qud umożliwia też granie wyłącznie za pomocą myszki. Gra oferuje bardziej przejrzystę grafikę typu pixel art co przedstawiono na rysunku \ref{CoQ:scr3}.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -143,7 +143,7 @@ Podobnie jak w grze Rogue tutaj również do poruszania się używana jest klawi
 \end{figure}
 \FloatBarrier
 
-Caves of Qud znacznie rozwinęło też interfejs użytkownika, co znacząco wpływa na ułatwienie rozgrywki. Interfejs jest tu przejrzysty i prosty, dzięki temu zmiana ekwipunku używanie przedmiotów jest dużo łatwiejsze. Na rysunku \ref{CoQ:scr2} przedstawiono ekran ekwipunku.
+Caves of Qud znacznie rozwinęło też interfejs użytkownika, co znacząco wpływa na ułatwienie rozgrywki. Interfejs jest tu przejrzysty i prosty, dzięki czemu zmiana ekwipunku oraz używanie przedmiotów jest dużo łatwiejsze. Na rysunku \ref{CoQ:scr2} przedstawiono ekran ekwipunku.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -160,19 +160,62 @@ Gra Caves of Qud znacznie rozwija aspekt RPG -- odgrywania postaci. W trakcie wy
 
 W Caves of Qud proceduralne generowanie używane jest nie tylko do generowania map. W grze można znaleźć duże ilości proceduralnie tworzonych książek, z których część dotyczy także samej fabuły gry \cite{coq_history}. Oznacza to, że poza niektórymi stałymi we wszystkich rozgrywkach aspektami historii również część fabuły będzie inna w każdej nowej rozgrywce.
 
-W odróżnieniu od większości gier tego typu Caves of Qud posiada mocno rozwiniętą historię i rozbudowane główne zadania fabularne. Poza główną linią zadań gra oferuje też sporo losowo generowanych zadań, które jednak są dosyć proste i najczęściej sprowadzają się do zdobycia konkretnego przedmiotu lub znalezienia jakiegoś miejsca. Główne zadania są różnorodne, często polegają na odwiedzaniu fabularnych, rozbudowanych lokacji, obronie pewnego miasta przed atakiem lub nawet rozwiązywania zagadek.
+W odróżnieniu od większości gier tego typu Caves of Qud posiada mocno rozwiniętą historię i rozbudowane główne zadania fabularne. Poza główną linią zadań gra oferuje też sporo losowych zadań, które jednak są dosyć proste i najczęściej sprowadzają się do zdobycia konkretnego przedmiotu lub znalezienia jakiegoś miejsca. Główne zadania są różnorodne, często polegają na odwiedzaniu fabularnych, rozbudowanych lokacji, obronie pewnego miasta przed atakiem lub nawet rozwiązywania zagadek.
 
 Biorąc pod uwagę fakt, że klasyczne gry typu roquelike posiadające dość wysoki poziom trudności rozgrywki, wciąż uznawane są za dość niszowy gatunek. Poszczególne gry zyskują jednak relatywnie dużą popularność, czego przykladem jest Caves Qud, które w serwisie Steam posiada 4356 z czego 95\% jest pozytywnych (stan na luty 2022) \cite{coq_steam}.
 
 
+
 \subsection{The Binding of Isaac}
+
+Gra The Binding of Isaac została stworzona w roku 2011 przez Edmund-a McMillen i Florian-a Himsl, a następnie jako remake The Binding of Isaac: Rebirth w roku 2014. W niniejszej pracy skupiono się na omówieniu The Binding of Isaac: Rebirth, gdyż jest to nowsza i bardziej popularna odsłona. Gra ta jest przykładem wzorowania się na roguelike-ach, ale odejściu od części klasycznych założen. Z gatunku zaczerpnięto losowo generowane mapy, losowo rozmieszczane przedmioty i przeciwników, oraz konieczność grania od początku w przypadku śmierci głównej postaci. Rozgrywka w The Binding Isaac dzieje się w czasie rzeczywistym, a ruch postaci nie jest ograniczony do siatki kwadratów. Z tego powodu gra jest bardzo dynamiczna, a walka zręcznościowa.
+
+The Binding of Isaac odeszło od podziału mapy na kwadratową siątke, ale wciąż korzysta z względnie prostej grafiki typu pixel art, co przedstawiono na rysunku: \ref{tboi:scr1}.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/tboi/scr1.png}
+	\caption{Przykład rozgrywki w The Binding of Isaac: Rebirth}
+	\label{tboi:scr1}
+\end{figure}
+\FloatBarrier
+
+Gracz wciela się początkowo w postać Isaac, ale w trakcie rozgrywki może odblokować wiele nowych postaci, które różnią się początkowymi statyskimi takimi jak zdrowie i siła ataku oraz posiadanymi przedmiotami. Gra nie posiada typowego ekwipunku takiego jak zbroje i bronie, zamiast tego w grze zbiera się nieograniczoną ilość przeróżnych przedmiotów, które zapewniają pasywne bonusy. Bonusy te wzmacniają postać na wiele różnych sposobów, od podstawowych zwiększających zdrowie lub atak po takie, które zmieniają łzy, którymi strzela gracz na zupełnie inną postać. Jednym z głównym aututów The Binding of Isaac są możliwe kombinacje przedmiotów, przykładowo jeśli gracz zdobędzie przedmiot, dzięki któremu pociski postaci będą się same nakierowywały na przeciwników, a następnie przedmiot, który zamienia pociski na laser, to ten laser będzie zaginany tak, aby zawsze trafiać przeciwników bez konieczności celowania, co pokazano na rysunku \ref{tboi:scr2}.
+
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/tboi/scr2.png}
+	\caption{Przykład kombinacji przedmiotów w The Binding of Isaac: Rebirth}
+	\label{tboi:scr2}
+\end{figure}
+\FloatBarrier
+
+W grze The Binding of Isaac za sterowanie postacią odpowiadają klawisze 'W', 'A', 'S', 'D' , a za strzelanie klawisze strzałek, do używania przedmiotów jest też używana spacja i klawisz 'Q'. Proste sterowanie jest kolejnym powodem przystępności tej gry.
+ W porównaniu do innych gier roguelike losowo generowane mapy w The Binding of Isaac są znacznie prostsze. Gra składa się z wielu poziomów podzielonych na pokoje, każdy z poziomów zakończony jest walką z silnym przeciwnikiem -- bossem. Pokoje są wybierane losowo z puli pokojów przygotowanych przez twórców, a ich rozkład i połączenia są losowo generowane. Na rysunku \ref{tboi:scr3} przedstawiono przykładowy układ poziomów. Z każdym kolejnym poziomem ilość pokojów jest coraz większa, ale jakość napotykanych przedmiotów nie wzrasta. Napotykane przedmioty są kompletnie losowe, dlatego czasem już nawet po pierwszym poziomie postać gracza może posiadać kilka najsilniejszych przedmiotów. 
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/tboi/scr3.png}
+	\caption{Przykład układ poziomów w The Binding of Isaac: Rebirth}
+	\label{tboi:scr3}
+\end{figure}
+\FloatBarrier
+
+Jedną z cech gier gatunku roguelike, które implementuje The Binding of Isaac jest permadeath. W porównaniu jednak do innych do tytułów, na których ukończenie trzeba często poświęcić parę godzi, The Binding of Isaac sprawnemu graczowi zajmie około godzinę na ukończenie, w wyniku czego rozpoczynanie rozgrywki od początku nie jest tak dotkliwe, i zachęca do częstego powtórnego przechodzenia gry.
+
+
+The Binging of Isaac: Rebirth jest jedną z najbardziej popularnych gier z gatunku roguelike, na serwisie Steam posiada 166244 opini, w tym 97\% pozytwnych (stan na luty 2022) \cite{tboi_steam}. Dowodzi to, że przeciętny gracz woli dynamiczną, rozgrywaną w czasie rzeczywistym rozgrywkę od wolnej, taktycznej rozgrywki turowej.
 
 \clearpage	
 
 
 \section{Szczegółowy opis gry}
 
-
+W ninejszym rozdziale przedstawiono wszystkie elementy i możliwości gry z gatunku roguelike stworzonej na potrzeby niniejszej pracy.
 
 
 
@@ -510,6 +553,10 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 
 % Caves of qud w serwisie Steam
 \bibitem{coq_steam} https://store.steampowered.com/app/333640/Caves\_of\_Qud/
+
+
+%The binding of isaac w serwisie Steam
+\bibitem{tboi_steam} https://store.steampowered.com/app/250900/The\_Binding\_of\_Isaac\_Rebirth/
 
 % potencjalne zrodla:
 % czysty kod
