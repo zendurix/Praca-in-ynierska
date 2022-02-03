@@ -75,18 +75,18 @@ Opisując własne dokonania, stosuje się formę bezosobową w czasie przeszłym
 
 \section{Charakterystyka porównawcza gier roguelike}
 
-W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac.
+W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac. Gatunek roguelike od swoich początkowych nie jest mocno popularnym gatunkiem z powodu trudnej rozgrywki i sterowania oraz prymitywnej oprawy graficznej. Powstały jednak popularne gry, które zaczerpują z gatunku tylko niektóre elementy, co w niektórych przypadka oznacza płynną, prostszą rozgrywkę z elementami roguelike.
 
 \subsection{Rogue}
 
-Rogue: Exploring the Dungeons of Doom to zaprogramowana w 1980 roku przez Michael-a Toy i Glenn-a Wichman gra, która zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi w celu odnaleznia amuletu Yendoru. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwpiunek. Podczas eksploracji glebszych poziomów podziemi gracz napotyka coraz trudniejszych przeciwników, lecz także przedmioty, które znajduje są coraz lepsze. Gra Rogue oparta jest o system turowy, przeciwnicy mogą wykonać ruch dopiero po ruchu gracza. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki. Każda mapa przedstawiona jest za pomocą siatki kwadratów, w wyniku czego ruch gracza ograniczony jest do 8 kierunków: góra, dół, lewo, prawo i ukosy. 
+Rogue: Exploring the Dungeons of Doom to zaprogramowana w 1980 roku przez Michael-a Toy i Glenn-a Wichman w języku C gra, która zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi osadzonych w fantastycznym, średniowiecznym świecie, w celu odnaleznia amuletu Yendoru. Rogue nie posiada wyboru ani konfiguracji postacji, dlatego każdy gracz rozpoczyna grę tą samą postacią. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwpiunek. Podczas eksploracji glebszych poziomów podziemi gracz napotyka coraz trudniejszych przeciwników, lecz także przedmioty, które znajduje są coraz lepsze. Gra Rogue oparta jest o system turowy, przeciwnicy mogą wykonać ruch dopiero po ruchu gracza. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki. Każda mapa przedstawiona jest za pomocą siatki kwadratów, w wyniku czego ruch gracza ograniczony jest do 8 kierunków: góra, dół, lewo, prawo i ukosy. 
 
 Z racji ograniczeń sprzętowych w czasach wydania gry Rogue za reprezentację graficzną odpowiadają litery i znaki ASCII w terminalu. Na rysunku \ref{Rogue:scr1} przedstawiono fragment rozgrywki w grze Rogue. Pomarańczowymi liniami oznaczone są ściany pokojów, zielonymi kropkami podłogi, na szaro oznaczono korytarze. Żólta twarz reprezentuje postać gracza przeciwnicy są oznaczani literami jak hobogoblin oznaczony białą literą 'H' na rysunku.
 
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=14cm]{images/rogue/scr1.png}
+	\includegraphics[width=12cm]{images/rogue/scr1.png}
 	\caption{Widok główny gry Rogue}
 	\label{Rogue:scr1}
 \end{figure}
@@ -108,20 +108,105 @@ Rogue zawiera proste proceduralnie generowane mapy, przykładowe dwie mapy pokaz
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=18cm]{images/rogue/scr3.png}
+	\includegraphics[width=16cm]{images/rogue/scr3.png}
 	\caption{Przykładowe mapy w grze Rogue}
 	\label{Rogue:scr3}
 \end{figure}
 \FloatBarrier
 
+Z racji sporego wieku gry Rogue ciężko jest określić jej popularność, jednak z pewnością można stwierdzić, że jest to kluczowa dla gatunku roguelike gra, która stworzyła podwaliny jego głównych cech. Świadczy o tym między innymi sama nazwa gatunku roguelike, która oznacza "podobne do Rogue".
+
+
+
 \subsection{Caves of Qud}
+Caves of Qud to współczesny przykład rozwoju klasycznej formuły roguelike-ów. Gra tworzona jest w silniku Unity przez studio Freehold Games, wydana została w 2015 roku, lecz rozwijana jest do dzisiaj (stan na luty 2022 roku). Gra posiada wszystkie cechy klasycznego roguelike-a: działa w systemie turowym, posiada permadeath, mapa gry oparta jest o siatkę kwadratów, lecz dodaje też sporo nowoczesnych rozwiązań i znaczne rozwinięcie wielu mechanik gry. Caves of Qud osadzone jest w post apokaliptycznym fantastycznym świecie w którym zaawansowana technologia miesza się z fantastycznymi rasami oraz magią.
+
+Jednym z głównych wyróżników Caves of Qud na tle innych gier tego typu jest bardzo mocno rozwinięty system proceduralnie generowanych map. Gra posiada otwarty świat o statycznie umiejscowionych obszarach takich jak góry, dżungle i pustynie a także miastach, na rysunku \ref{CoQ:scr1} przedstawiono przykładowe mapy wygenerowane w tej grze. Pomimo statycznego ustawienia konkretnych obszarów w grze sam wygląd danych obszarów i miejsc jest proceduralnie generowany, a także na wielu mapach mogą zostać dodane obiekty takie jak ruiny, obozowiska i tym podobne. Główną i najbardziej interesującą metodą uzywaną w tej grze jest generowanie map oparte o Wave Function Collapse (Załamanie funkcji falowej) \cite{coq_wfc}. Metoda ta pozwala na generowanie dowolnych map opartych o mały wzorzec.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/caves_of_qud/scr1.png}
+	\caption{Przykładowe mapy w grze Caves of Qud. Po lewej wioska, po prawej dżungla z ruinami}
+	\label{CoQ:scr1}
+\end{figure}
+\FloatBarrier
+
+Podobnie jak w grze Rogue tutaj również do poruszania się używana jest klawiatura numeryczne i klawisze liter do dostępu do ekwipunku, listy zadań i tym podobne, lecz Caves of Qud umożliwia też granie wyłącznie za pomocą myszki. Gra oferuje bardziej przejrzystę grafikę typu pixel art co przedstawiono na rysunku \ref{CoQ:sc3}.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/caves_of_qud/scr3.png}
+	\caption{Zrzut ekranu z gry Caves of Qud}
+	\label{CoQ:scr3}
+\end{figure}
+\FloatBarrier
+
+Caves of Qud znacznie rozwinęło też interfejs użytkownika, co znacząco wpływa na ułatwienie rozgrywki. Interfejs jest tu przejrzysty i prosty, dzięki temu zmiana ekwipunku używanie przedmiotów jest dużo łatwiejsze. Na rysunku \ref{CoQ:scr2} przedstawiono ekran ekwipunku.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{images/caves_of_qud/scr2.png}
+	\caption{Ekran ekwipunku w Caves of Qud}
+	\label{CoQ:scr2}
+\end{figure}
+\FloatBarrier
+
+Interesującym rozwiązaniem w Caves of Qud jest system handlowy. W grze istnieje system głodu i pragnienia, gracz więc w celu uniknięcia śmierci z głodu lub odwodnienia musi nosić ze sobą zapasy wody i pożywienia, które mają swoją wagę, więc można ich posiadać ograniczoną ilość. Walutą w tej grze jest woda pitna, która jest bardzo rzadko spotykana w postaci źródeł, zdecydowana większość wody w zbiornikach naturalnych jest niezdatna do picia. Z tego powodu gracz zbiera wodę nie tylko dla zaspokojenia pragnienia, ale również w celu handlu z spotykanymi między innymi w wioskach handlarzami. Postać gracza ma ograniczony udźwig, więc często handel sprowadza się do handlu wymiennego, ponieważ trudno jest nosić ze sobą duże kwoty w postaci wody.
+
+Gra Caves of Qud znacznie rozwija aspekt RPG -- odgrywania postaci. W trakcie wyboru postaci najpierw wybiera się typ postaci - mutant mający dostęp do wielu fizycznych lub mentalnych mutacji, które zapewniają dodatkowe zdolności, bonusy lub nawet dodatkowe kończyny lub True Kin będący niezmutowanym człowiekiem, który ma dostęp do cybernetycznych implantów dających różnorodne bonusy i umiejętności. Poza typem wybiera się też pochodzenie postaci, które określa początkowy ekwipunek oraz bonusy do atrybutów. W trakcie gry gracz może dowolnie rozwijać -- zwiększając wartości atrybutów takich jak siła, zręczność, siła woli i tym podobne oraz przez uczenie się nowych umiejętności jak specjizacja w posługiwaniu się konkretnym typem broni lub lepszego unikania ataków. Dzięki dostępowi do dużej ilości różnorodnych mutacji lub implantów, zależnie od typu postaci, gracz dodatkowo może kreować swoją postać na wiele sposobów.
+
+W Caves of Qud proceduralne generowanie używane jest nie tylko do generowania map. W grze można znaleźć duże ilości proceduralnie tworzonych książek, z których część dotyczy także samej fabuły gry \cite{coq_history}. Oznacza to, że poza niektórymi stałymi we wszystkich rozgrywkach aspektami historii również część fabuły będzie inna w każdej nowej rozgrywce.
+
+W odróżnieniu od większości gier tego typu Caves of Qud posiada mocno rozwiniętą historię i rozbudowane główne zadania fabularne. Poza główną linią zadań gra oferuje też sporo losowo generowanych zadań, które jednak są dosyć proste i najczęściej sprowadzają się do zdobycia konkretnego przedmiotu lub znalezienia jakiegoś miejsca. Główne zadania są różnorodne, często polegają na odwiedzaniu fabularnych, rozbudowanych lokacji, obronie pewnego miasta przed atakiem lub nawet rozwiązywania zagadek.
+
+Biorąc pod uwagę fakt, że klasyczne gry typu roquelike posiadające dość wysoki poziom trudności rozgrywki, wciąż uznawane są za dość niszowy gatunek. Poszczególne gry zyskują jednak relatywnie dużą popularność, czego przykladem jest Caves Qud, które w serwisie Steam posiada 4356 z czego 95\% jest pozytywnych (stan na luty 2022) \cite{coq_steam}.
 
 
 \subsection{The Binding of Isaac}
 
 \clearpage	
 
+
 \section{Szczegółowy opis gry}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Ponad 50\% objętości pracy -- część autorska:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm] 
@@ -408,9 +493,29 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 \addcontentsline{toc}{section}{Literatura}
 
 \begin{thebibliography}{4}
+	
+% zrodlo film: Autor filmu [osoba/firma], tytuł, nazwa konferencji i odnośnik www.
+% zrodlo gra : Autor gry [osoba/firma], nazwa gry i strona internetowa.
 
 % o roguelikach ogolnie https://www.routledge.com/Exploring-Roguelike-Games/Harris/p/book/9780367482596
 \bibitem{bookroguelike} Harris J.: Exploring Roguelike Games. CRC Press, 2020.
+
+
+
+% prezentacja o użyciu wave function collapse w Caves of Qud
+\bibitem{coq_wfc} Brian Bucklew (Freehold Games), Math for Game Developers: Tile-Based Map Generation using Wave Function Collapse in 'Caves of Qud', Game Developers Conference, https://www.gdcvault.com/play/1026263/Math-for-Game-Developers-Tile .
+
+% prezentacja o proceduralnej historii w Caves of Qud
+\bibitem{coq_history} Jason Grinblat (Freehold Games), Procedurally Generating History in 'Caves of Qud', Game Developers Conference, https://www.gdcvault.com/play/1024990/Procedurally-Generating-History-in-Caves .
+
+% Caves of qud w serwisie Steam
+\bibitem{coq_steam} https://store.steampowered.com/app/333640/Caves\_of\_Qud/
+
+% potencjalne zrodla:
+% czysty kod
+% ksiazka o rust
+% ksiazka o vs Code ??
+% algorytmy i struktury danych
 
 
 
