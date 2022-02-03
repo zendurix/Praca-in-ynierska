@@ -1,39 +1,19 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% %
-%%% % weiiszablon.tex
-%%% % The Faculty of Electrical and Computer Engineering
-%%% % Rzeszow University Of Technology diploma thesis Template
-%%% % Szablon pracy dyplomowej Wydziału Elektrotechniki 
-%%% % i Informatyki PRz
-%%% % June, 2015
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,twoside]{article}
 
-\usepackage{weiiszablon}
+\usepackage{styles/weiiszablon}
+\usepackage{styles/listings-rust}
+% uzywane do wyrownywania obrazkow (FloatBarrier)
+\usepackage{placeins}
 
 \author{Michał Majda}
 
 % np. EF-123456, EN-654321, ...
-\studentID{XX-??????}
-
+\studentID{EF-157100}
 \title{Proceduralne generowanie map \\ z wykorzystaniem w grze typu roguelike }
 \titleEN{Temat pracy po angielsku}
-
-
-%%% wybierz rodzaj pracy wpisując jeden z poniższych numerów: ...
-% 1 = inżynierska	% BSc
-% 2 = magisterska	% MSc
-% 3 = doktorska		% PhD
-%%% na miejsce zera w linijce poniżej
 \newcommand{\rodzajPracyNo}{1}
-
-
-%%% promotor
 \supervisor{dr hab. inż. Maciej Kusy, prof. PRz }
-%% przykład: dr hab. inż. Józef Nowak, prof. PRz
-
-%%% promotor ze stopniami naukowymi po angielsku
 \supervisorEN{(academic degree) Imię i nazwisko opiekuna}
 
 \abstract{Treść streszczenia po polsku}
@@ -45,22 +25,19 @@
 \maketitle
 
 \blankpage
-
-% spis treści
 \tableofcontents
-
 \clearpage
 \blankpage
 
 
-\section*{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}
-\addcontentsline{toc}{section}{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}%
+% \section*{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}
+% \addcontentsline{toc}{section}{Wykaz symboli, oznaczeń i skrótów (opcjonalny)}%
+%
+% 1 $\div$ 2 stron wykaz ważniejszych symboli i oznaczeń (jeśli jest potrzebny).
+% \clearpage
 
-1 $\div$ 2 stron wykaz ważniejszych symboli i oznaczeń (jeśli jest potrzebny).
-\clearpage
-
-\section{Wstęp}
-Roguelike to gatunek gier komputerowych posiadający elementy gier RPG TODO[ksiazka o rpg], bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach W głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna wążną cechą gier Roguelike jest permadeath - śmierć gracza oznacza konieczność gry od początku. Klasyczne roguelike-i z racji trudnej rozgrywki nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunek biorąc z niego tylko wybrane elementy. Z powodu standardowej dla roguelike-ów słabej jakościowo grafiki, oraz map tworzonych proceduralnie to znaczy według algorytmów zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują z stanardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego ruchu. Czyni to nowych przedstawicieli gatunku roguelike bardziej przystępnymi co przekłada się na wzrost popularności TODO[zrodlo pupularnosc roguelike].
+\section*{Wstęp}
+Roguelike to gatunek gier komputerowych posiadający elementy gier RPG TODO[ksiazka o rpg], bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach W głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna wążną cechą gier Roguelike jest permadeath -- śmierć gracza oznacza konieczność gry od początku. Klasyczne roguelike-i z racji trudnej rozgrywki nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunek biorąc z niego tylko wybrane elementy. Z powodu standardowej dla roguelike-ów słabej jakościowo grafiki, oraz map tworzonych proceduralnie to znaczy według algorytmów zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują z stanardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego ruchu. Czyni to nowych przedstawicieli gatunku roguelike bardziej przystępnymi co przekłada się na wzrost popularności TODO[zrodlo pupularnosc roguelike].
 
 Gatunek ten zapoczątkowany został przez grę Rogue w 1980 roku TODO[ksiazka o rogue], od tej gry wzięła się też nazwa gatunku roguelike - Rogue podobne. Rogue gracz eksploruje podziemia walcząc z przeciwnikami oraz zdobywając coraz lepszy ekwipunek, celem ukończenia gry jest zdobycie amuletu Yendoru znajdującego się w najniższym poziomie. Grafika oparka jest o znaki tekstowe ASCII  TODO[ksiazka o ascii], rozgrywka dzieje się w systemie turowym na kwadratowej siatce.
 
@@ -72,29 +49,9 @@ Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnei ge
 
 Struktura pracy jest następująca: W rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę z gatunku roguelike stworzoną na potrzeby niniejszej pracy, w rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
 
-
-
-
-%z szablonu
-\iffalse
-1 $\div$ 5 stron charakterystyka problematyki w świetle aktualnego stanu wiedzy i~techniki, ze wskazaniem na zagadnienia istotne z punktu widzenia realizowanej pracy.
-Na trzeciej stronie można zamieścić podziękowania dla osób, które przyczyniły się do powstania pracy dyplomowej. Na kolejnej stronie nieparzystej rozpoczyna się spis treści. Po spisie treści zalecane jest umieszczenie wykazu użytych symboli, oznaczeń i akronimów. Od tego miejsca rozpoczyna się numeracja rozdziałów. Na następnej stronie umieszcza się wprowadzenie do pracy (scharakteryzowanie problematyki pracy, uzasadnienie wyboru tematyki) oraz przedstawia: cel i/lub tezę pracy, zakres pracy, przyjęte założenia itp.
-Ostatni akapit wstępu musi zawierać zwięzłe sformułowanie celu i zakresu pracy. 
-\\
- \textcolor{red}{
-Uwaga: \\
-Jeżeli decydujesz się wykorzystywać \LaTeX'a, ignoruj ogólny dokument dotyczący formatowania pracy dyplomowej na WEiI - jest przeznaczony dla użytkowników innych edytorów tekstu. Korzystaj z załączonego arkusza stylu, stosuj formatowanie znaczeniowe (nie wymuszaj formatowania), a wynikowa praca będzie zgodna z wymaganiami. Zachęcamy do używania \LaTeX'a, czas poświęcony na jego przyswojenie, zwróci się z nawiązką nawet w trakcie tworzenia pracy dyplomowej. \\
-Niniejszy tekst, wykorzystujący  styl \texttt{weiiszablon.sty} zawiera informacje o formatowaniu, wielkości czcionek, wyrównania\ldots, ale \textbf{uwaga}, sama treść nie jest istotna (np. opis wielkości czcionek), 
-formatowanie wykona się automatycznie, tu te zapisy są tylko po to, aby dostarczyć dokument zawierający jak najwięcej przykładów użycia \LaTeX'a.
-}
-\fi
-
-
-
 \clearpage
 
-\section{Charakterystyka porównawcza gier roguelike}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % z szablonu
 \iffalse
 Do 20\% objętości pracy. W zależności od charakteru pracy ten rozdział powinien zawierać:
@@ -114,31 +71,48 @@ Ewentualne listingi programów, instrukcje obsługi stanowisk lub inne tego rodz
 Opisując własne dokonania, stosuje się formę bezosobową w czasie przeszłym np. celem pracy było zaprojektowanie\ldots, zakres pracy obejmował wyznaczenie\ldots, w~ramach pracy wykonano model\ldots itp.
 
 \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-W niniejszym rodziale szczegółowo omówiono przykłady gier z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac.
+\section{Charakterystyka porównawcza gier roguelike}
 
+W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1: Rogue, 2: Caves of Qud, 3: The Binding of Isaac.
 
 \subsection{Rogue}
 
+Rogue: Exploring the Dungeons of Doom to zaprogramowana w 1980 roku przez Michael-a Toy i Glenn-a Wichman gra, która zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi w celu odnaleznia amuletu Yendoru. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwpiunek. Podczas eksploracji glebszych poziomów podziemi gracz napotyka coraz trudniejszych przeciwników, lecz także przedmioty, które znajduje są coraz lepsze. Gra Rogue oparta jest o system turowy, przeciwnicy mogą wykonać ruch dopiero po ruchu gracza. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki. Każda mapa przedstawiona jest za pomocą siatki kwadratów, w wyniku czego ruch gracza ograniczony jest do 8 kierunków: góra, dół, lewo, prawo i ukosy. 
 
-Rogue: Exploring the Dungeons of Doom to zaprogramowana w 1980 roku przez Michael-a Toy i Glenn-a Wichman gra, która zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi w celu odnaleznia amuleto Yendoru. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwpiunek. Rogue oparta jest o system turowy, przeciwnicy mogą wykonać ruch dopiero po ruchu gracza. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki.
+Z racji ograniczeń sprzętowych w czasach wydania gry Rogue za reprezentację graficzną odpowiadają litery i znaki ASCII w terminalu. Na rysunku \ref{Rogue:scr1} przedstawiono fragment rozgrywki w grze Rogue. Pomarańczowymi liniami oznaczone są ściany pokojów, zielonymi kropkami podłogi, na szaro oznaczono korytarze. Żólta twarz reprezentuje postać gracza przeciwnicy są oznaczani literami jak hobogoblin oznaczony białą literą 'H' na rysunku.
 
-
-Na rysunku \ref{Rogue:scr1} przedstawiono fragment rozgrywki w grze Rogue. Żółtymi liniami oznaczone są ściany pokojów, zielonymi kropkami podłogi, na szaro oznaczono korytarze. Żólty pytajnik reprezentuje postać gracza przeciwnicy są oznaczani literami jak lodowy potwór oznaczony literą 'I' na rysunku.
-
-
-
-
+\FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm]{images/rogue/scr1.png}
-	\caption{Zrzut ekranu z gry Rogue}
+	\includegraphics[width=14cm]{images/rogue/scr1.png}
+	\caption{Widok główny gry Rogue}
 	\label{Rogue:scr1}
 \end{figure}
+\FloatBarrier
 
+Do sterowania w Rogue używana jest tylko klawiatura, do poruszania przeznaczone są klawisze klawiatury numerycznej a do wykonywania akcji litery -- na przykład klawisz 'I' służy do wyswietlenia ekwipunku. Aby zaatakować gracz musi poruszyć się w stronę przeciwnika będąc tuż przy nim. Wyświetlanie ekwipunku w grze Rogue pokazano na rysunku \ref{Rogue:scr2}, manipulowanie przedmiotami w plecaku nie odbywa się w tym oknie, ale w głownym widoku gry za pomocą odpowienich klawiszy i podania litery odpowiadającej danemu przedmiotowi w ekwipunku. Na przykład aby wyrzucić przedmiot 'a +1, +1 mace` znajdujący się w ekwipunku na rysunku \ref{Rogue:scr2} trzeba wcisnąć klaiwsz 'd' odpowiadający za wyrzucanie przedmiotów i literę 'c' przypisaną obecnie do tego przedmiotu, a w celu zjedzenia 'some food' klaiwsz 'e' odpowiadający za akcję jedzenia i literę 'a'. 
 
-\clearpage	
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/rogue/scr2.png}
+	\caption{Ekran ekwipunku w Rogue}
+	\label{Rogue:scr2}
+\end{figure}
+\FloatBarrier
 
+Rogue zawiera proste proceduralnie generowane mapy, przykładowe dwie mapy pokazano na rysunku: \ref{Rogue:scr3}. Każda mapa zawiera pokoje w układzie siatki 3x3, co szczególnie widać na mapie po prawej na rysunku \ref{Rogue:scr3}, maksymalna liczba pokojów to dziewięć, ale może być ich mniej. Pokoje są połączone ze sobą korytarzami a niektóre przejścia mogą być ukryte przed graczem, co wymusza częste korzystanie z komendy przeszukiwania dostępnej pod klawiszem 'S'. Pokoje i korytarze mogą zawierać ukryte pułapki, które można wykryć używając komendy szukania. Jedyną zmianą w głebszych poziomach są małe labirynty umiejszczone czasami w miejsce niektórych pokojów.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=18cm]{images/rogue/scr3.png}
+	\caption{Przykładowe mapy w grze Rogue}
+	\label{Rogue:scr3}
+\end{figure}
+\FloatBarrier
 
 \subsection{Caves of Qud}
 
@@ -147,7 +121,7 @@ Na rysunku \ref{Rogue:scr1} przedstawiono fragment rozgrywki w grze Rogue. Żó�
 
 \clearpage	
 
-\section{Tekst zasadniczy -- II}
+\section{Szczegółowy opis gry}
 
 Ponad 50\% objętości pracy -- część autorska:
 \begin{enumerate}[label=\alph*), leftmargin=1.25cm] 
@@ -328,16 +302,25 @@ pracy dyplomowej. Typowo w \LaTeX\ kody źródłowe umieszczane są w środowisk
 automatycznie za pomocą parametru \verb|language|. W niniejszym dokumencie przedstawiono dwa przykłady listingów, Listing \ref{KodMatlab1} to przykład kodu źródłowego Matlaba, a poniżej Listing \ref{KodPerl1} dla Perl'a.\\
 %\komentarz{
 
-\begin{lstlisting}[language=Matlab,caption=Listing programu Matlab,label={KodMatlab1}]
-i = 1
-p = 3
-for i = 1:10
-    if i > 3
-        i=i+p
-    else 
-        i=i+1
-    end
-end
+
+% test listingu Rust - obrazki jednak beda lepsze
+\begin{lstlisting}[language=Rust,caption=Listing programu Matlab,label={KodMatlab1}]
+pub fn new(x: usize, y: usize, width: usize, height: usize) -> GuiMapGenTestingManager {
+	GuiMapGenTestingManager {
+		x,
+		y,
+		width,
+		height,
+		selected: 0,
+		bg: rltk::RGB::named(rltk::BLACK),
+		title: TextCol::new(vec![("Map generators testing".to_string(),rltk::RGB::named(rltk::WHITE))]),
+		options: vec![],
+		options_sprites_indexes: vec![],
+		show_steps: false,
+		map_gen: Box::new(TestMap::new(width - 4, height - 4)),
+		current_history_index: 0,
+	}
+}
 \end{lstlisting}
 
 \begin{lstlisting}[language=Perl,caption=Listing programu Perl,label={KodPerl1}]
@@ -428,6 +411,9 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 
 % o roguelikach ogolnie https://www.routledge.com/Exploring-Roguelike-Games/Harris/p/book/9780367482596
 \bibitem{bookroguelike} Harris J.: Exploring Roguelike Games. CRC Press, 2020.
+
+
+
 % z szablonu:
 %\bibitem{str} http://weii.portal.prz.edu.pl/pl/materialy-do-pobrania. Dostęp 5.01.2015.
 %\bibitem{Jakubczyk1997} Jakubczyk T., Klette A.: Pomiary w akustyce. WNT, Warszawa 1997.
