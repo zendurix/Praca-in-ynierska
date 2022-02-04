@@ -524,20 +524,91 @@ W programie użyto wielu tworzonych przez społeczność bibliotek open source -
 	\item 'specs' -- implementacja architektury Entity Component System.
 \end{itemize}
 
-Gra posiada grafikę typu pixel art w formacie 16x16 pikseli, w oknie gry użyto dwukrotnie powięszonych obrazków w formacie 32x32 w celu polepszenia widoczności. Oryginalny format 16x16 używany jest w testerze proceduralnego generowania map w celu zaprezentowania całych map w jednym oknie. Do tworzenia grafiki użyto programu Aseprite \cite{aseprite} będącego wygodnym narzędziem graficznym wyspecjalizowanym w tworzeniu grafiki pixel art. Wszystkie obrazki użyte w grze znajdują się w folderze 'resources' w dwóch plikach, odpowiednio 'sprite\_sheet\_16x16.png' oraz 'sprite\_sheet\_32x32.png'. Taki format przechowywania obrazków zapewnia porządek w folderach gry, dostęp do konkretnego obrazka odbywa się przez określenie wymiarów oraz podaniu indeksu. Aby uzyskać obrazek przedstawiający gracza z pliku 'sprite\_sheet\_16x16.png' przedstawionego na rysunku \ref{mygame:spritesheet} należy określić rozmiary -- 16x16 pikseli oraz podać indeks 2 -- obrazki są indeksowane od lewej do prawej, pierwszy element ma indeks zero.
+Gra posiada grafikę typu pixel art w formacie 16x16 pikseli, w oknie gry użyto dwukrotnie powięszonych obrazków w formacie 32x32 w celu polepszenia widoczności. Aby móc zmieścić całą mapę w jednym oknie w testerze proceduralnych generatorów map, użyty został oryginalny format 16x16. Do tworzenia grafiki użyto programu Aseprite \cite{aseprite} będącego wygodnym narzędziem graficznym wyspecjalizowanym w tworzeniu grafiki pixel art. Wszystkie obrazki użyte w grze znajdują się w folderze 'resources' w dwóch plikach, odpowiednio 'sprite\_sheet\_16x16.png' oraz 'sprite\_sheet\_32x32.png'. Taki format przechowywania obrazków zapewnia porządek w folderach gry, dostęp do konkretnego obrazka odbywa się przez określenie wymiarów oraz podaniu indeksu. Aby uzyskać obrazek przedstawiający gracza z pliku 'sprite\_sheet\_16x16.png' przedstawionego na rysunku \ref{mygame:spritesheet} należy określić rozmiary -- 16x16 pikseli oraz podać indeks 2 -- obrazki są indeksowane od lewej do prawej, pierwszy element ma indeks zero.
 
 \FloatBarrier
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/spritesheet.png}
-	\caption{Grafiki użyte w grze}
+	\caption{Grafiki użyte w grze. Od lewej: ściana, skały, postać gracza, goblin, ork, rycerz, łotr, blop, blip, buty, zbroja, sztylet, miecz, duża mikstura zdrowia, mikstura zdrowia, magiczny zwój, schody w dół, schody w górę, podłoga}
 	\label{mygame:spritesheet}
 \end{figure}
 \FloatBarrier
 
+\subsection{Implementacja}
+W niniejszym podrozdziala przedstawiono szczegóły implementacyjne, wraz z prezentacją fragmentów kodu źródłowego, wybranych elementów gry.
 
 
+\subsubsection{Struktura projektu}
+Gra roguelike posiada wiele modułów spełniających odmienne zadania. Kod projektu podzielony został na wiele modułów i podmodułów w celu lepszej organizacji. Główne folder programu zawiera foldery: 'resources' -- zawierający grafiki użyte w grze, 'src' -- zawierający kod źródłowy, na rysunku \ref{code:main_structure} przedstawiono schemat głównych modułów kodu projektu. W folderze głównym znajduje się też plik Cargo.toml określający między innymi użyte biblioteki.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/code/main_structure.png}
+	\caption{Schemat głównych modułów struktury projektu}
+	\label{code:main_structure}
+\end{figure}
+\FloatBarrier
+
+Moduł 'ecs' zawiera podstawowy plik projektu 'game\_state.rs' będący maszyną stanów oraz obsługujący główną pętlę gry. W tym module znajdują się też podmoduły:
+ 
+ \begin{itemize}
+ 	\item 'components' -- definicje komponentów,
+ 	\item 'systems' -- zaiwera systemy, dzieli się na kolejne podmoduły: 
+ 	\begin{itemize}
+ 		\item 'ai' -- systemy sterujące kompurerowymi przeciwnikami,'
+ 		\item 'combat' -- systemy związane z walką i zadawaniem obrażeń,
+ 		\item 'effects' -- efekty takie jak leczenie i teleportacja,
+ 		\item 'inventory' -- systemy zarządzania ekwipunkiem, podnoszenia i używania przedmiotów,
+ 		\item 'map' -- systemy związane z mapą, aktualizacja zablokowanych pól,
+ 		\item 'player' -- systemy poruszania i akcji postaci gracza, oraz odczytywania wciśniętych klawiszy,
+ 		\item 'spawn' -- system umieszczania obiektów na poziomie, 
+ 		/item 'view\_system' -- system obliczania pola widzenia gracza oraz przeciwników.
+ 	\end{itemize}
+ \end{itemize}
+ 
+Moduł 'graphics' odpowiada za grafikę: tworzenie okna gry, rysowanie mapy i okien interfejsu. Znajdują się w nim funkcje do rysowania mapy gry, oraz obiektów: przedmiotów i postaci. Posiada podmoduł 'menus' z definicją struktur odpowiedzialnych za poszczególne okna w grze, a także definicję trait-u `WindowOptionSelector`, który implementuje większość tych struktur.
+
+Moduł 'levels' posiada definicję struktury 'Level' odpowiedzialnej za poziom, oraz 'LevelManager' odpowiedzalnej za przechowywanie i tworzenie nowych poziomów.
+
+W module 'map' zdefiniowana jest struktura przechowująca kształt mapy: 'Map', definicja typów pól na mapie, oraz pomocnicze funkcje związane z mapą. zawiera też podmoduł 'generators' zawierający generatory poszczególnych typów map.
+
+Moduł 'spawner' jest odpowiedzialny za tworzenie obiektów w grze takich jak: postać gracza, przeciwnicy, przedmioty i ekwipunek. Zawiera też definicję struktur 'SpawnTable` odpowiadających za rozmieszczanie obiektów na konkretnych poziomach.
+
+Plik 'main.rs' zaaiwera funkcję główną programu: 'main()'. W tej funkcji deklaruje się podstawowe konfigurację takie jak rozmiary map i okna gry, a także uruchamiana w niej jest pętla główna gry.
+ 
+W pliku 'rng.rs' zawarto funkcje do losowania liczb używane w generatorach map, a także przy rozmieszczaniu na nich przeciwników i przedmiotów.
+
+\subsubsection{Architektura Entity Component System}
+Twórcy gier gatunku roguelike dzięki prostej grafice mogą poświęcić więcej czasu na tworzenie skomplikowanych, interesujących mechanik. Szczególnie przydatną w tworzeniu takich skomplikowanych mechanik jest architektura Enitity Component System (Encja, Komponent, System), nazywana dalej ECS TODO [zrodlo ecs], skupiająca się na rozdzieleniu danych od systemów. Dzięki użyciu biblioteki 'specs' pominięto etap implementowania architektury ECS, skupiono się wyłącznie na jej użyciu. Elementami ECS są :
+
+\begin{itemize}
+	\item 'Entity' -- encja, jest to indeks reprezentujący dany obiekt w grze na przykład gracza, przeciwnika lub przedmiot,
+	\item 'Component' -- komponent, są to części składowe obiektów w grze przypisywane do konkretnych encji,
+	\item 'System' -- części logiczne architektury, konkretne systemy aktualizują stany konkretnych komponentów,
+	\item w niektórych implementacjach stosowany też jest czwart element 'Event' -- wydarzenie, służący do informowania konkretnych obiektów o takich wydarzeniach jak na przykład zadanie obrażeń, użycie przedmiotu. W przypadku tej gry wydarzenie zostały zrealizowane za pomocą odpowiednich komponentów.
+\end{itemize}
+	
+Komponenty to małe części składowe, których stan aktualizowany jest przez konkretne systemy. Komponenty tworzone są jako struktury implementujące trait 'Component' z biblioteki 'specs'. Definicje komponentów znajdują się w pliku 'src/ecs/components/mod.rs'. Przykładowe komponenty przedstawione na rysunku \ref{code:comps} to:
+\begin{itemize}	
+	\item 'BlocksTile' -- struktura bez pól, informuje, że dany obiekt blokuje aktualnie zajmowane pole, i nie może się na nim znaleźć inny obiekt posiadający 'BlocksTile',
+	\item 'Hp' -- informuje o maksymalnej i aktualnej liczbie punktów zdrowia. Posiadacze tego komponentu mogą zostać zranieni,
+	\item 'CombatBaseStats' -- statystyki bojowe: atak i obrona, informują odpowiednio o ilości zadawanych obrażeń w trakcie walki i o ilości blokowanych obrażeń,
+	\item 'WantsToMeleeAtack' -- komponent-wydarzenie dodawany do obiektu chcącego dokonać ataku, informuje o celu ataku,
+	\item 'SufferDamage' -- komponent-wydarzenia dodawany do obiektów, którym zadane zostały obrażenia. Ilości obrażeń przedstawione są jako wektor, gdyż w jednej turze jeden obiekt może zostać zaatakowany przez kilku przeciwników.
+\end{itemize}
+	
+	
+
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/code/comps.png}
+	\caption{Przykładowe struktury komponentów}
+	\label{code:comps}
+\end{figure}
+\FloatBarrier
 
 
 
@@ -730,7 +801,7 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 %notatki, pytania
 \iffalse
 czy dodac podrozdzial o przeciwnikach do opisu gry (okolo 1- 1.5 strony z obrazkami)
-czy dodac zrodla o bibliotekach (2 strony github / crates.io)
+czy dodac zrodla o bibliotekach uzytych w programie (2 strony github / crates.io)
 czy w technologiach pisac o uzyciu gita i githuba + zrodlo github
 
 
