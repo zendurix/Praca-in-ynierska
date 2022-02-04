@@ -279,6 +279,7 @@ Poniżej wyjaśnienie wszystkich komend dostępnych w grze w kolejności z rysun
 	\item Numpad5 / 'W' -- pominięcie jednej tury,
 	\item ',' (klawisz przecinka) -- zejście w dół po schodach,
 	\item '.' (klawisz kropki) -- wejście w górę po schodach,
+	\item 'G' -- podniesienie przedmiotu,
 	\item 'I' -- otwarcie menu ekwipunku,
 	\item 'E' -- pokazuje obecnie wyekwipowane przedmioty,
 	\item klaiwsz Enter -- wybór opcji w menu,
@@ -288,7 +289,7 @@ Poniżej wyjaśnienie wszystkich komend dostępnych w grze w kolejności z rysun
 
 
 \subsection{Rozkład poziomów}
-Gra składa się z sześciu poziomów oferujących róznych przeciwników i przedmioty. W tej sekcji w celu prezentacji wyglądu poszczególnych poziomów posłużono się testerem proceduralnie generowanych map.
+Gra składa się z sześciu poziomów oferujących róznych przeciwników i przedmioty. W tej sekcji w celu prezentacji wyglądu poszczególnych poziomów posłużono się testerem proceduralnie generowanych map. Poziomy zaprezentowano w kolejności w jakiej występują one w trakcie rozgrywki.
 
 \subsubsection{Poziom 1}
 Poziom pierwszy to kilka prostych pokojów połączonych ze sobą korytarzami, przykładowy układ tej mapy przedstawiono na rysunku \ref{mygame:map1}. Na poziomie tym napotkać można najprostszych przeciwników: 'blip' oraz 'goblin'. Istnieje też mała szansa, że w pokoju z golbinami pojawi się też trudniejszy przeciwnik -- 'orc'. Na poziomie tym znaleźć można podstawowy pancerz i miecz, a także mikstury uzdrawiające i zwoje uśpienia, które są szczególnie przydatne w walkach z trudniejszymi przeciwnikami w późniejszych poziomach.
@@ -331,7 +332,7 @@ Poziom trzeci to duża jaskinia wypełniona masą goblinów i orków. Przykłado
 
 
 \subsubsection{Poziom 4}
-Poziom czwarty to kolejna jaskinia, tym razem z dużo większym obszarem w centrum, oraz okazjonalnymi ciasnymi odnogami. Przykładowy poziom czwarty przedstawiono na rysunku \ref{mygame:map4}. Poziomie tym można spotkać duże ilości prostych 'blip'ów z pierwszego poziomu, a także sporo ich większych odmian -- 'blop'-ów. 'Blop' poza byciem silniejszą odmianą blipa posiada też specjalną zdolność -- po śmierci rozpadnie się na kilka blipów. Na tym poziomie można też znaleźć mocniejszą zbroję i miecz, a także duże mikstury uzdrowienia i zwoje obszarowego uśpienia.
+Poziom czwarty to kolejna jaskinia, tym razem z dużo większym obszarem w centrum, oraz okazjonalnymi ciasnymi odnogami. Przykładowy poziom czwarty przedstawiono na rysunku \ref{mygame:map4}. Na poziomie tym można spotkać duże ilości prostych 'blip'ów z pierwszego poziomu, a także sporo ich większych odmian -- 'blop'-ów. 'Blop' poza byciem silniejszą odmianą blipa posiada też specjalną zdolność -- po śmierci rozpadnie się na kilka blipów. Na tym poziomie można też znaleźć mocniejszą zbroję i miecz, a także duże mikstury uzdrowienia i zwoje obszarowego uśpienia.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -354,11 +355,107 @@ Poziom piąty to duży obszar podzielony na pokoje bezpośrednio połączone ze 
 \end{figure}
 \FloatBarrier
 
+
 \subsubsection{Poziom 6}
 Poziom szósty to ostatni poziom, cały będący otwartą przestrzenią. W tym poziomie gracz spotka tylko jednego przeciwnika -- 'Mighty Blop' (potężny blop), którego pokonanie jest celem gry. Potężny blop jest silniejszą wariacją blopa, na które rozpada się po śmierci, one z kolei po śmierci rozpadną się na blipy. Aby ukończyć grę należy go pokonać oraz zejść schodami w dół.
 
 
+\subsection{Okno gry}
+Po rozpoczęciu nowej gry gracz zobaczy okno z wycinkiem mapy wycentrowanym na postać gracza, a także okno dziennika zdarzeń i pasek punktów życia, co pokazano na rysunku \ref{mygame:game_window}. Widok mapy jest powiększonym wycinkiem poziomu, przesuwającym się razem z graczem. W dzienniku zdarzeń zapisywane są wydarzenia z gry takie jak podnoszenie przedmiotu i ataki gracza lub przeciwników. Pasek życia posiada liczbową prezentację punktów życia w postaci [aktualne punkty zdrowia / maksymalne punkty zdrowia], oraz graficzną reprezentację -- czerwony pasek zmniejszający się wraz ze spadkiem zdrowia.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/mygame/game_window.png}
+	\caption{Widok główny gry. 1 - aktualny wycinek mapy, 2 - dziennik zdarzeń, 3 - aktualny poziom, 4 - pasek zdrowia }
+	\label{mygame:game_window}
+\end{figure}
+\FloatBarrier
+
+
+\subsection{Przedmioty oraz ich używanie}
+W grze gracz przez eksplorację znaleźć moze wiele różnorodnych przedmiotów, których używanie jest konieczne w celu ukończenia gry. Przedmioty dzielą się na zbroje, bronie, mikstury oraz magiczne zwoje. Aby podnieść przedmiot gracz musi przejść na zajmowane przez przedmiot pole a następnie wcisnąć klawisz 'G'. Na rysunku \ref{mygame:item_room} przedstawiono pokój wypełniony przedmiotami.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{images/mygame/item_room.png}
+	\caption{Pokój z przedmiotami. 1 - postać gracza, 2 - mikstura zdrowia, 3 - broń, 4 - zbroja }
+	\label{mygame:item_room}
+\end{figure}
+\FloatBarrier
+
+
+\subsubsection{Okna ekwipunku}
+Gracz w każdej chwili może sprawdzić swój ekwipunek klawiszem 'I', ekran ten zaprezentowano na rysunku \ref{mygame:inv}. Wyboru przedmiotu dokonuje się za pomocą stzałek i klawisza Enter, litera po lewej stronie przy aktualnie wybranym przedmiocie jest zaznaczona na zielono. Innym sposobem wybrania przedmiotu jest wciśnięcie przypisanej mu po lewej stronie litery w nawiasach. Dopis '<EQUIPPED>' po prawej stronie danego przedmiotu oznacza, że jest on aktualnie założony przez postać gracza. Zielone liczby oznaczają ilość danego przedmiotu, na rysunku \ref{mygame:inv} zaobserwować można, że gracz posiada cztery mikstury uzdrawiająca 'Health potion'. Klawiszem Esc można wyjśc z menu ekwipunku i powrócić do gry.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/mygame/inv.png}
+	\caption{Okno ekwipunku}
+	\label{mygame:inv}
+\end{figure}
+\FloatBarrier
+
+Po wybraniu przedmiotu wyświetla się menu wyboru akcji dostepnych dla każdego przedmiotu, przykładowe dostępne akcje dla 'Health potion' przedstawiono na rysunku \ref{mygame_item_menu}. Każdy przedmiot można wyrzucić za pomocą akcji 'drop', spowoduje to wyrzucenie przedmiotu na pole zajmowane przez gracza. W przypadku nie założonych zbroi i broni dostępna jest opcja 'Equip' powodująca wyekwipowanie danego przedmiotu. Konsekwentnie założone przedmioty posiadają akcję 'UnEquip', która pozwala na ściągnięcie danego przedmiotu. Mikstury i zwoje posiadają akcję 'Use' pozwalająca na użycie danego przedmiotu. Niektóre przedmioty są używane od razu na postaci gracza, a niektóre pozwalają na wybranie celu.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/mygame/item_menu.png}
+	\caption{Okno akcji przedmiotu z ekwipunku}
+	\label{mygame:item_menu}
+\end{figure}
+\FloatBarrier
+
+
+\subsubsection{Zbroje i bronie}
+Każda postać w grze posiada wartość obrony, która obniża wartość otrzymywanych obrażeń. Obronę zwiększyć można za pomocą zbroi zakładanych na poszczególne części ciała: głowę, tors, ręce oraz nogi. W grze w kolejnych poziomach spotkać można coraz lepsze zbroje, dzięki czemu postać gracza jest coraz wytrzymalsza.
+
+Podobnie jak obronę, postać gracza oraz przeciwnicy posiadają wartośc ataku, która określa ilość zadawanych w trakcie ataku obrażeń. Wartość tę można zwiększyć ekwipując bronie rozsiane po poziomach. Lepsze bronie znaleźć można w późniejszych poziomach, dzięki czemu gracz, który dokładnie eksploruje plansze będzie zadawał coraz więcej obrażeń.
+
+
+\subsubsection{Mikstury}
+Postać gracza posiada określoną ilość punktów zdrowia 'HP', które zmniejszają się wskutek ataków przeciwników. Aby zregenerować zdrowie gracz musi znaleźć mikstury uzdrawiające. W grze dostępne są dwie wersje tych mikstur -- zwykła 'Health potion' oraz większa 'Great health potion', któa leczy większą ilość punktów zdrowia. Użycie mikstur jest natychmiastowe, a celem zawsze jest postać gracza. Wygląd mikstur został pokazany na rysunku \ref{mygame:item_room}.
+
+
+\subsubsection{Zwoje}
+Kolejnym typem przedmiotów są magiczne zwoje. Zwoje zapewniają wile różnorodnych efektów, a ich użycie wymaga wyboru celu, co zaprezentowano na rysunku \ref{mygame:targeting}. Cel ataku zaznaczony jest pomarańczowym kolorem, niebieskie pola oznaczają pola będące w zasięgu danego zwoju. Cel wybrać można przesuwając znacznik celu klawiszami używanymi do przesuwania postaci lub kliknięciem myszki na dane pole. Na rysunku \ref{mygame:scroll} pokazano wygląd zwojów w grze.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{images/mygame/targeting.png}
+	\caption{Wybór celu magicznego zwoju}
+	\label{mygame:targeting}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3cm]{images/mygame/scroll.png}
+	\caption{Magiczny zwój w grze}
+	\label{mygame:scroll}
+\end{figure}
+\FloatBarrier
+
+Dostępne w grze zwoje to 
+\begin{itemize}
+	\item 'Magic missile scroll' -- zwój magicznego pocisku, zadaje obrażenia wybranemu celowi,
+	\item 'Fireball scroll' -- zwój ognistej kuli, zadaje obrażenia przeciwnikom w małym promieniu od wybranego celu,			
+	\item 'Sleep scroll' -- zwój uśpienia, usypia wybrany cel na kilka tur -- nie będzie się on poruszał ani atakował,
+	\item 'Area sleep scroll' -- zwój obszarowego uśpienia, usypia kilka przeciwników w małym promieniu od wybranego celu,
+	\item 'Teleport scroll' -- zwój teleportacji, natychmiast przenosi postać gracza w wybrane miejsce.	
+\end{itemize}
+
+\subsection{Przeciwnicy}
+
+
 \clearpage	
+
+
 
 \section{Technologie i implementacja}
 
@@ -482,6 +579,10 @@ strony numer 3 (lub 5, jeżeli zamieszczono podziękowania).
 \clearpage
 
 \section{Podsumowanie i wnioski końcowe}
+
+
+problemy i rozwiazania:
+- mala widocznosc - powiekszono widok gry - przesuwajaca sie za graczm kamera
 
 
 \clearpage
