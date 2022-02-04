@@ -36,17 +36,17 @@
 % \clearpage
 
 \section*{Wstęp}
-Roguelike to gatunek gier komputerowych posiadający elementy gier fabularnych RPG \cite{book_rpg}, bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach W głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna wążną cechą gier Roguelike jest permadeath -- śmierć gracza oznacza konieczność gry od początku. Klasyczne roguelike-i z racji trudnej rozgrywki nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunek biorąc z niego tylko wybrane elementy. Z powodu standardowej dla roguelike-ów słabej jakościowo grafiki, oraz map tworzonych proceduralnie to znaczy według algorytmów zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują z stanardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego ruchu. Czyni to nowych przedstawicieli gatunku roguelike bardziej przystępnymi co przekłada się na wzrost popularności \cite{roguelike_popularity}.
+Roguelike to gatunek gier komputerowych posiadający elementy gier fabularnych RPG \cite{book_rpg}, bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach w głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna ważną cechą gier Roguelike jest permadeath -- śmierć gracza oznacza konieczność gry od początku. Klasyczne roguelike-i, z racji trudnej rozgrywki, nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunek biorąc z niego tylko wybrane elementy. Z powodu standardowej dla roguelike-ów słabej jakościowo grafiki oraz map tworzonych proceduralnie - to znaczy według algorytmów - zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują ze stanardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego ruchu. Czyni to nowych przedstawicieli gatunku roguelike bardziej przystępnymi, co przekłada się na wzrost popularności \cite{roguelike_popularity}.
 
-Gatunek ten zapoczątkowany został przez grę Rogue w 1980 roku \cite{rogue_game}, od tej gry wzięła się też nazwa gatunku roguelike - Rogue podobne. Rogue gracz eksploruje podziemia walcząc z przeciwnikami oraz zdobywając coraz lepszy ekwipunek, celem ukończenia gry jest zdobycie amuletu Yendoru znajdującego się w najniższym poziomie. Grafika oparka jest o znaki tekstowe w kodowaniu ASCII \cite{book_ascii}, rozgrywka dzieje się w systemie turowym na kwadratowej siatce.
+Gatunek ten zapoczątkowany został przez grę Rogue w 1980 roku \cite{rogue_game}, od której wzięła się też nazwa gatunku roguelike - Rogue podobne. Rogue gracz eksploruje podziemia walcząc z przeciwnikami oraz zdobywając coraz lepszy ekwipunek. Celem ukończenia gry jest zdobycie amuletu Yendoru znajdującego się w najniższym poziomie. Grafika oparka jest o znaki tekstowe w kodowaniu ASCII \cite{book_ascii}, rozgrywka dzieje się w systemie turowym na kwadratowej siatce.
 
-Mimo iż gatunek roguelike rozwinął się znacznie to wciąż powstają gry wierne klasycznym założeniom gatunku. Przykładem takiej gry jest Caves of Qud z 2015 roku \cite{game_coq}. Gra ta posiada wszystkie cechy klasycznego roguelike-a - turowa rozgrywka, permadeath oraz ruch po kwadratowej siatce, jednak klasyczną grafikę tekstową zastąpiono prostą grafiką typu pixel art \cite{source_pixelart}.
+Mimo iż gatunek roguelike rozwinął się znacznie to wciąż powstają gry wierne klasycznym założeniom gatunku. Przykładem tego jest Caves of Qud z 2015 roku \cite{game_coq}. Gra ta posiada wszystkie cechy klasycznego roguelike-a - turowa rozgrywka, permadeath oraz ruch po kwadratowej siatce, jednak klasyczną grafikę tekstową zastąpiono prostą grafiką typu pixel art \cite{source_pixelart}.
 
-Jednym z najbardziej popularnych przykładów nowoczesnych roguelike-ów jest gra The Binding of Isaac z roku 2011 \cite{game_tboi}. Z gatunku roguelike gra ta zaczerpnęła losowe generowanie map, przedmiotów i przeciwników oraz permadeath. W The Binding of Isaac rozgrywka dzieje się w czasie rzeczywistym a ruch gracza nie jest ograniczony do siatki, dzięki temu gra jest bardziej zręcznościowa i łatwiejsza.\\
+Jednym z najbardziej popularnych przykładów nowoczesnych roguelike-ów jest The Binding of Isaac z roku 2011 \cite{game_tboi}. Z gatunku roguelike gra ta zaczerpnęła losowe generowanie map, przedmiotów i przeciwników oraz permadeath. W The Binding of Isaac rozgrywka dzieje się w czasie rzeczywistym, a ruch gracza nie jest ograniczony do siatki. Dzięki temu zabiegowi gra jest bardziej zręcznościowa i co za tym idzie -  łatwiejsza.\\
 
-Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnei generowanymi mapami, oraz omówienie użytych metod generacji map. \\
+Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnie generowanymi mapami, oraz omówienie użytych metod generacji map. \\
 
-Struktura pracy jest następująca: W rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę roguelike stworzoną na potrzeby niniejszej pracy, w rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
+Struktura pracy jest następująca: w rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę roguelike stworzoną na potrzeby niniejszej pracy. W rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
 
 
 \clearpage
@@ -510,7 +510,7 @@ Na rysunku \ref{mygame:tester_steps} przedstawiono częśc kroków generacji map
 
 
 \section{Technologie i implementacja}
-W niniejszym rozdziale opisano technologie, architekturę oraz algorytmy użyte do implementacji gry.
+W niniejszym rozdziale opisano technologie, architekturę oraz algorytmy użyte do implementacji gry. W ostatnim podrozdziale szczegółowo omówiono użyte metody proceduralnego generowania map.
 
 
 \subsection{Technologie}
@@ -595,12 +595,9 @@ Komponenty to małe części składowe, których stan aktualizowany jest przez k
 	\item 'Hp' -- informuje o maksymalnej i aktualnej liczbie punktów zdrowia. Posiadacze tego komponentu mogą zostać zranieni,
 	\item 'CombatBaseStats' -- statystyki bojowe: atak i obrona, informują odpowiednio o ilości zadawanych obrażeń w trakcie walki i o ilości blokowanych obrażeń,
 	\item 'WantsToMeleeAtack' -- komponent-wydarzenie dodawany do obiektu chcącego dokonać ataku, informuje o celu ataku,
-	\item 'SufferDamage' -- komponent-wydarzenia dodawany do obiektów, którym zadane zostały obrażenia. Ilości obrażeń przedstawione są jako wektor, gdyż w jednej turze jeden obiekt może zostać zaatakowany przez kilku przeciwników.
+	\item 'SufferDamage' -- komponent-wydarzenie dodawany do obiektów, którym zadane zostały obrażenia. Ilości obrażeń przedstawione są jako wektor, gdyż w jednej turze jeden obiekt może zostać zaatakowany przez kilku przeciwników.
 \end{itemize}
 	
-	
-
-
 \FloatBarrier
 \begin{figure}[h]
 	\centering
@@ -610,80 +607,248 @@ Komponenty to małe części składowe, których stan aktualizowany jest przez k
 \end{figure}
 \FloatBarrier
 
+Na rysunku \ref{code:spawn_player} pokazano przykładowe tworzenie encji za pomocą przydzielaniu jej odpowiednich komponentów. Tworzoną encją w tym przypadku jest postać gracza. Poniżej wyjaśniono znaczenie komponentów z których składa się postać gracza, poza komponentami wyjaśnionymi wcześniej:
+\begin{itemize}	
+	\item 'Player' -- struktura bez pól, informuje, że dany obiekt jest sterowany przez gracza. W grze powinien istnieć dokładnie jeden obiekt posiadający ten komponent,
+	\item 'Movable' -- obiekt z tym komponentem jest w stanie się poruszać. Zawiera on kierunek kolejnego ruchu, lub 'None' w przypadku braku ruchu,
+	\item 'View' -- obiekt posiadający ten komponent posiada wzrok. Komponent view określa zasięg widzenia, oraz aktualnie widziane pola na mapie,
+	\item 'ViewMemory' -- pozwala zapamiętywać zobaczone wcześniej pola na mapie. Zawiera listę odkrytych już pól,
+	\item 'Position' -- obiekt może zajmować określoną w tym komponencie pozycję na mapie,
+	\item 'Name' -- określa nazwę danego obiektu,
+	\item 'Renderable' -- obiekt z tym komponentem posiada przypisaną do niego grafikę, i może być rysowany na mapie,
+	\item 'BodyParts' -- obiekt posiada części ciała na które moze założyć ekwipunek. default\-humanoid() to domyślne części ciała dla postaci o ciele podobnym do ludzkiego: głowa, tors, ręve i nogi,
+	\item 'Inventory' -- komponent pozwala obiektowi na podnoszenie i przechowywanie przedmiotów.
+\end{itemize}
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/code/spawn_player.png}
+	\caption{Funkcja tworząca encję gracza i przydzielająca mu odpowiednie komponenty}
+	\label{code:spawn_player}
+\end{figure}
+\FloatBarrier
 
 
+Systemy odpowiedzalne są za logikę gry, ich celem jest aktualizacja konkretnych komponentów. Na rysunku \ref{code:system_damage} przedstawiono system odpowiedzialny za przyjmowanie obrażeń. Systemy implementowane są jako puste struktury implementujące trait 'System' z biblioteki specs. W implementacji traita najpierw zdefiniowano typ 'SystemData' - określa to do jakich danych, oraz w jaki sposób -- 'WriteStorage' oznacza możliwość edycji, 'ReadStorage' oznacza możliwość wyłącznie odczytu, ma dostęp dany sytem. Dla tego systemu przyznano dostęp do komponentów 'Hp' i ' SufferDamage'. Następnie zdefiniowana funkcję run wymaganą przez ten trait. W pierwszej linijce funkcji utworzono zmienne hps - zbiór wszystkich komponentów 'Hp' oraz damages - zbiór wszystkich komponentów 'SufferDamage'. Uzyta w pętli for funkcja 'join()' wyodrębnia komponenty znajdujące się na wszystkich zbiorach, na których została ona wywołana oraz gdzie komponenty te przypisane są do wspólnego właściciela -- Encji. Oznacza to, że każda iteracja pętli posiada dostęp do komponentów z zbiorów przekazanych do tej funkcji będących komponentami jednej Encji. Dla każdej Encji, która posiaa te dwa komponenty odjęto sumę przyjętych obrażeń od aktualnego poziomu życia. Z racji, że komponenty 'SufferDamage' są komponentami-wydarzeniami, to można je usunąć po skończeniu pętli.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/code/system_damage.png}
+	\caption{System 'DamageSystem' odpowiedzalny za zadawanie obrażeń obiektom}
+	\label{code:system_damage}
+\end{figure}
+\FloatBarrier
+
+W przypadku systemów ważna jest kolejność ich wywoływania. W trakcie tury przeciwników najpierw wywoływany jest system `AISystem` odpowiedzialny za akcje przeciwników komputerowych, następnie zadawane są obrażenia za pomocą 'MeleeCombatSystem`, koleejnym systemem jest omówiony 'DamageSystem` na końcu uruchamiana jest funkcja `delete\_the\_dead` odpowiedzialna za usuwanie postaci, których punkty życia osiągnęły zero.
+
+\subsubsection{Pętla główna gry oraz jej stany}
+Za stan gry odpowiada struktura 'State' z pliku 'game\_state.rs'. Implementuje ona funkcję `tick()`, która uruchamiana jest w nieskończonej głównej pętli gry. Działanie funkcji tick zależne jest od aktualnego stanu gry opsianego za pomocą enuma 'RunState`. Możliwe stany gry to:
+\begin{itemize}
+	\item 'MainMenu' -- wyświetlane jest menu główne gry,
+	\item 'MapGenTesting(bool)' -- wyświetlane jest menu testera proceduralnie generowanych map. Ta opcja zawiera dodatkową zmienną typu bool, ustawienie tej zmiennej na true oznacza wyświetlanie testowanej mapy, false oznacza wyświetlenie menu testera,
+	\item 'AwaitingInput' -- wyświetlane jest okno gry, gra oczekuje na akcję gracza,
+	\item 'PreRun' -- uruchamiane są wszystkie podstawowe systemy gry, następny stan to 'AwaitingInput',
+	\item 'PlayerTurn' -- uruchamiane są wszystkie podstawowe systemy gry, następny stan to 'MonsterTurn',
+	\item 'MonsterTurn' -- uruchamiane są wszystkie podstawowe systemy gry, następny stan to 'AwaitingInput',
+	\item 'ShowInventory' -- wyświetlane jest okno ekwipunku, gra oczekuje na akcję gracza,
+	\item 'ShowEquipment' --wyświetlane jest okno aktualnie założonych zbrój i broni, gra oczekuje na akcję gracza,
+	\item 'ShowItemActions(Entity)' -- wyświetlane jest okno akcji konkretnego przedmiotu, gra oczekuje na akcję gracza,
+	\item 'Targeting(TargetingAction)' -- gracz określa cel dla konkretnego przedimotu określonego w TargetingAction, określony też jest zasięg danego przedmiotu,
+	\item 'MoveLevel(usize)' -- gracz przenosi się do poziomu o podanym indeksie. Jeśli poziom ten jeszcze nie istnieje, to 'LevelManager' go tworzy,
+	\item 'GameOver' -- wyświetlane jest okno informujące o przegraniu gry, ma to miejsce w razie śmierci postaci gracza. Gra czeka na wciśnięcie konkretnego klawisza po którym wraca do menu głównego,
+	\item 'Controls' -- wyświetlane jest okno informacji o sterowaniu,
+	\item 'Won' -- wyświetlane jest okno informujące o wygraniu gry. Gra czeka na wciśnięcie konkretnego klawisza po którym wraca do menu głównego.	
+\end{itemize}
+
+\subsubsection{System rozmieszczania przeciwników i przedmiotów na poziomach}
+W grze występuje wiele rodzajów przeciwników i przedmiotów, a z racji generowaniu map w sposób proceduralny nie jest możliwe określenie ich statycznych położeń. W tym celu utworzono system określający jakie obiekty lub postacie występują na poziomach, oraz jakie są ich ilości oraz szansa wystąpienia. System ten został zdefiniowany w pliku 'spawner/spawn.tables.rs' i składa się z następujących struktur w kolejności od najmniejszej części składowej: `SpawnEntry`, `SpawnPack` oraz `SpawnTable`.
+ 
+Struktura 'SpawnEntry' przedstawiona na rysunku \ref{code:spawn_entry} składa się z pól:
+\begin{itemize}
+	\item 'entity\_name' -- nazwa obiektu. Nazwa ta musi być uwzględniona w funkcji `spawner/mod.rs/spawn\_entity()`, która odpowiada za umiejscowienie obiektu o danej nazwie na podanej pozycji,
+	\item 'rng\_range' -- określa zasięg od minimalnej do maksymalnej liczby obiektów, które mogą zostać uwtworzone w ramachdanego 'SpawnEntry'. Dokładna liczba jest losowa w podanym zakresie,
+	\item 'chance\_perc' -- określa szansę w punktach procentowych na pojawienie obiektów z danego 'SpawnEntry'.	
+\end{itemize}
+
+ 
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/code/spawn_entry.png}
+	\caption{Struktura 'SpawnEntry'}
+	\label{code:spawn_entry}
+\end{figure}
+\FloatBarrier
+ 
+Każdy generator map posiada metodę zwracającą dla wygenerowanej przez niego mapy wydzielone obszary nazywane 'spawn areas'. Spawn areas to obszary, na których może pojawić się grupa obiektów zdefiniowana w strukturze 'SpawnPack' zaprezentowanej na rysunku \ref{code:spawn_pack}. Struktura ta określa minimalny obszar, na którym może pojawić się ta grupa, szansę wystąpienia tej grupy, oraz maksymalną ilość grup tego typu na danym poziomie.
+ 
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/code/spawn_pack.png}
+	\caption{Struktura 'SpawnPack'}
+	\label{code:spawn_pack}
+\end{figure}
+\FloatBarrier
+
+Na rysunku \ref{code:goblins_pack} przedstawiono funkcję tworzącą 'SpawnPack' będący grupę goblinów. W obszarze 'spawn area' dla którego wylosowany zostanie ten spawn pack pojawi się od dwóch do sześciu goblinów, od zera do jednej mikstury życia, oraz zwój uśpienia z dwudziesto procentową szansą na pojawienie się.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/code/goblins_pack.png}
+	\caption{'SpawnPack' grupa goblinów}
+	\label{code:goblins_pack}
+\end{figure}
+\FloatBarrier
+
+Ostatnim elementem rozmieszczania przedmiotów i przeciwników jest struktura 'SpawnTable' przedstawiona na rysunku \ref{code:spawn_table} , która określa możliwe do pojawienia się na danym poziomie grupy obiektów -- 'SpawnPack'. Na rysunku \ref{code:basic_spawn} przedstawiono tablicę możliwych grup na poziomie pierwszym.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6cm]{images/code/spawn_table.png}
+	\caption{Struktura 'SpawnTable'}
+	\label{code:spawn_table}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/code/basic_spawn.png}
+	\caption{Przykład 'SpawnTable' dla poziomu pierwszego}
+	\label{code:basic_spawn}
+\end{figure}
+\FloatBarrier
+
+Po skończeniu generacji poziomu, generator oblicza obszary 'spawn area', następnie dla każdego z nich losowana jest grupa 'SpawnPack' z tablicy 'SpawnTable' przypisanej dla danego poziomu aż wszystkim obszarom zostanie przypisany 'SpawnPack', albo każdy z nich osiągnie maksymalną ilość pojawień się. W każdej przypisanej grupie następują dwa losowania dla każdego 'SpawnEntry' składającego się na tą grupę. Wynik pierwszego losowania decyduje o pojawieniu się danych obiektów, a drugie określa ich ilość. Każdy obiekt, który pojawił się w ramach danego 'SpawnPack'-u zostaje umieszczony na losowym miejscu w przypisanym do tej grupy obszarze 'spawn area'.
 
 
+\subsection{Proceduralne generowanie poziomów}
+Prcoderualna generacja oznacza tworzenie poziomów na podstawie algorytmów z użyciem losowości. Oznacza to, że przy każdym generatorze, mapy przez niego tworzone będą różne, ale będą tego samego typu. Każdy generator posiada strukture konfiguracyjną, dzięki czemu łatwo można zmieniać jego zasady, co w połączeniu z testerem proceduralnie generowanych map pozwala na szybkie dostosowywanie parametrów w celu osiągnięcia konkretnego wyglądu planszy. Przykłady wygenerowanych map pochodzą z testera generowania map.
+
+\subsubsection{Poziom pierwszy}
+Generator używany do tworzenia mapy poziomu pierwszego jest jednym z najprostszych i polega na losowym rozmieszczenie pokojów o losowych wymiarach. Pokoje nie mogą na siebie nachodzić, zakresy ich ilości i wymiarów można określić w konfiguracji tego generatora. Po umieszczeniu na mapie poziomów są one łączone ze sobą korytarzami, w kolejności w jakiej się pojawiły.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/generators/level1.png}
+	\caption{Przykład wygenerowanych map dla poziomu pierwszego}
+	\label{generators:level1}
+\end{figure}
+\FloatBarrier
 
 
+\subsubsection{Poziom drugi}
+Generator użyty w poziomie drugim oparty jest o metodę Binary Space Partitioning \cite{bsp_source} -- binarne dzielenie przestrzeni, określane też za pomocą skrótu BSP. Metoda ta opiera się o drzewo binarne \cite{book_algo}, które zawiera kolejne podobszary mapy. Na rysunku \ref{generators:bsp_node} przedstawiono strukturę reprezentującą węzeł drzewa użytego w tej metodzie. Zawiera ona indeks węzła, poziom drzewa na którym znajduje się ten węzeł, indeksy rodzica, siostry -- węzła o wspólnym bezpośrednim rodzicu, opcjonalne indeksy dzieci, indeksy kolejnych rodziców aż do korzenia, obszar zajmowany przez ten węzeł, oraz opcjonalnie obszar zajmowany przez pokój umieszczony w tym węźle.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/generators/bsp_node.png}
+	\caption{Węzeł drzewa binarnego użyty w metodzie Binary Space Partitioning}
+	\label{generators:bsp_node}
+\end{figure}
+\FloatBarrier
+
+Korzeń drzewa zawsze zawier obszar całej mapy, następnie w losowym, zbliżonym do środka obecnego obszaru następuje podział na dwa obszary, losowo w sposób pionowy lub poziomy. Te kolejne dwa obszary są dziećmi obszaru z którego się wywiodły. Taki podział następuje do momentu, gdy maksymalny określony w generatorze poziom drzewa zostanie osiągnięty. Na rysunku \ref{generators:bsp_tree} przedstawiono przykładowy podział mapy na obszary z przypisaniem obszarów do węzłów drzewa. Liczby w każdym obszarze oznaczają jego roodzinę w formacie od prawej strony pierwsza liczba to indeks węzła zawierającego ten obszar, następnie w lewo indeks jego rodzica, indeks rodzica rodzica i tak dalej. Węzły z indeksem zaczynającym się od 15 to liście drzewa -- nie posiadają dzieci.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{images/generators/bsp_tree.png}
+	\caption{Przykład podziału map za pomocą metody Binary Space Partitioning}
+	\label{generators:bsp_tree}
+\end{figure}
+\FloatBarrier
+
+Następnie w każdym z obszarów zawartych w liściach drzewa umieszcza się pokój o losowych rozmiarach, przedstawiono to na rysunku \ref{generators:bsp_rooms}.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/generators/bsp_rooms.png}
+	\caption{Rozmieszczenie pokojów na mapie BSP}
+	\label{generators:bsp_rooms}
+\end{figure}
+\FloatBarrier
+
+Ostatnim krokiem jest połączenie ze sobą pokojów za pomocą korytarzy. Dzięki użyciu drzewa binarne można zastosować lepsze rozwiązanie niż "każdy z każdym", zapewniające, że z każdego pokoju można w jakiś sposób dostać się do każdego innego. Przechodząc od przedostatniego poziomu drzewa w górę najpierw łączy się ze sobą po dwa pokoje znajdujące się w obszarzach będącymi dziećmi węzłów z przedostatniego poziomu. W kolejnych poziomach dla każdego węzła wybiera się losowych potomków będących liścmi, z obojga dzieci każdego węzła danego poziomu, i łączy się zawarte w nich pokoje. Po skończeniu tego procesu wszystkie pokoje są połączone w sposób, który zakłada na przykład, że na pewno istnieje połączenie między jednym z pokojów zawartycgh w obszarze węzła o indeksie 3 a jednym z pokojów z obszaru należącego do węzła 4, gdyż węzły o indeksach 3 i 4 są bezpośrednimi dziećmi węzła o indeksie 1. Na rysunku \ref{generators:bsp_done} można zaobserwować, że w omówionym powyżej przypadku połączony został pokój z liścia o indeksie 18 z pokojem z liścia o indeksie 19.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/generators/bsp_done.png}
+	\caption{Mapa wygenerowana za pomocą algorytmu binarnego podziału przestrzeni}
+	\label{generators:bsp_done}
+\end{figure}
+\FloatBarrier
 
 
+\subsubsection{Poziom trzeci}
+Generacja poziomu rzeciego oparta jest o automat komórkowy \cite{book_ca}, będący kwadratową siatką pól mogących być żywmi lub martwymi, których kolejny stan zależy od poprzedniego, oraz od ustalonych warunków. W kreowaniu mapy za pomocą tej metody za żywe uznano pola będące podłogą, a za martwe pola będące ścianą. W pierwszym kroku każde pole na mapie w losowy sposób staje się żywe lub martwe. W kolejnych krokach o ustalonej ilości stan każdej komórki na mapie zmienia się według tego, czy jest ona żywa lub martwa, oraz ilu posiada żywych sąsiadów -- pól stykających się z daną komórką:
 
+\begin{itemize}
+	\item jeśli komórka jest żywa, oraz posiada mniej niż trzech żywych sąsiadów to w kolejnym kroku będzie martwa,
+	\item jeśli komórka jest martwa i posiada więcej niż czterech żywych sąsiadów to w kolejnym kroku będzie żywa.
+\end{itemize}
+
+Ostatnim krokiem jest usunięcię wszystkich nie połączonych ze sobą obszarów, poza największym.
+Za pomocą manipulowania zasadami tego algorytmu można w łatwy sposób zmieniać wygląd wygenerowanych plansz, przykładowo na rysunku \ref{generators:ca_diff} po lewej stronie znajduje się mapa wygenerowana według standardowych zasad użytych w grze, a po prawej mapa, w której podłoga uznawana jest za martwą komórkę, a ściana za żywą.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/generators/ca_diff.png}
+	\caption{Przykład manipulacji zasad algorytmu opartego o automat komórkowy}
+	\label{generators:ca_diff}
+\end{figure}
+\FloatBarrier
+
+
+\subsubsection{Poziom czwarty}
+Generator map użyty w poziomie czwartym oparty jest o algorytm Drunkard Walk. W celu przystępniejszego wytłumaczenia zasad tego algorytmu posłużono się postacią górnika, który chodząc po planszy wykopuje kolejne pola, zamieniając je w podłogi. W implementacji użytej na potrzeby tej gry algorytm wykonuje się w następujących krokach:
+
+\begin{itemize}
+	\item wszystkie pola na mapie zamieniane są na ściany,
+	\item następnie dopóki określona przestrzeń mapy nie będzie podłogą wykonuje się następujące kroki:
+	\begin{enumerate}
+		\item w centralnym polu mapy umieszcza się górnika,
+		\item w określonej ilości ruchów górnik porusza się o jedno pole w losowym kierunku, każde pole, po którym przejdzie zamienia się w podłogę,
+		\item jeśli górnikowi skończyły się ruchy, a mapa wciąż nie zawiera określonej ilości miejsc nie będących ścianami powraca się do punktu 1.
+	\end{enumerate}	
+\end{itemize}
+
+W wyniku tego algorytmu otrzymać można mapy, których przykłady zaprezentowano na rysunku \ref{generators:drunkard_walk} 
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/generators/drunkard_walk.png}
+	\caption{Przykład działania generatora map opartego o algorytm Drunkard Walk}
+	\label{generators:drunkard_walk}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Poziom piąty}
+Poziom piąty korzysta z tej samej metody Binary Space Partitioning, co poziom drugi, lecz pokoje w nim zajmują całe obszary przypisane do węzłów będącymi liścmi drzewa. Pozwala to na wygenerowanie mapy podzielonej na pokoje bezspośrednio ze sobą połączone, bez użycia korytarzy. Na rysunku \ref{generators:bsp_diff} zaprezentowano porównanie mapy z poziomu drugiego z mapą z poziomu piątego.
+	
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/generators/bsp_diff.png}
+	\caption{Porównanie map poziomu drugiego po lewej i piątego po prawej, wygenerowanych za pomocą metody BSP}
+	\label{generators:bsp_diff}
+\end{figure}
+\FloatBarrier
 
 \iffalse
 
 
-{\subsubsection{Listingi programów}}
-
-W pracy dyplomowej możesz umieszczać fragmenty programów. Pamiętaj, aby umieszczać krótkie, tylko najważniejsze fragmenty kodów źródłowych. Zawsze je komentuj w treści
-pracy dyplomowej. Typowo w \LaTeX\ kody źródłowe umieszczane są w środowisku verbatim (\verb|\begin{verbatim}...\end{verbatim}|). Obecnie instnieje jednak bardziej nowoczesne i bardziej funkcjonalne środowisko \verb|lstlisting| (wymaga zainstalowanego w systemie pakietu \verb|listings|). Zwróć uwagę, że możesz kolorować składnię
-automatycznie za pomocą parametru \verb|language|. W niniejszym dokumencie przedstawiono dwa przykłady listingów, Listing \ref{KodMatlab1} to przykład kodu źródłowego Matlaba, a poniżej Listing \ref{KodPerl1} dla Perl'a.\\
-%\komentarz{
-
-
-% test listingu Rust - obrazki jednak beda lepsze
-\begin{lstlisting}[language=Rust,caption=Listing programu Matlab,label={KodMatlab1}]
-pub fn new(x: usize, y: usize, width: usize, height: usize) -> GuiMapGenTestingManager {
-	GuiMapGenTestingManager {
-		x,
-		y,
-		width,
-		height,
-		selected: 0,
-		bg: rltk::RGB::named(rltk::BLACK),
-		title: TextCol::new(vec![("Map generators testing".to_string(),rltk::RGB::named(rltk::WHITE))]),
-		options: vec![],
-		options_sprites_indexes: vec![],
-		show_steps: false,
-		map_gen: Box::new(TestMap::new(width - 4, height - 4)),
-		current_history_index: 0,
-	}
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language=Perl,caption=Listing programu Perl,label={KodPerl1}]
-  my $url ='http://pei.prz.edu.pl';
-  use LWP::Simple;
-  my $content = get $url;
-  die "Couldn't get $url" unless defined $content;
-  print $content;
-  print "\n";
-  print "Length " + length($content)
-\end{lstlisting}
-
-Z pewnością przeglądając źródło tego dokumentu zobaczysz, że kody źródłowe powinny mieć zdefiniowane parametry \verb|label|, aby łatwo w tekście do nich się odwoływać.
-Numeracja linii jest w stylu domyślnie włączona (to przydatne, bo w treści pracy łatwo odwołać się dzięki temu do konkretnego wiersza w kodzie źródłowym), możesz je wyłączyć podając jako parametr \verb|numbers=none|. Więcej szczegółów możesz odnaleźć w sekcji \verb|\lstset| pliku arkusza styli. 
-%}
-
-
-\subsubsection{Numerowanie i punktowanie}
-
-\begin{enumerate}[label=\arabic*), leftmargin=1.25cm]
-	\item Pierwszy poziom (stosuje się numerowanie lub punktowanie). Formatowanie:
-	akapit wyjustowany, wcięcie od lewej 0,75 cm, wysunięcie co 0,5 cm.
-	\item Znakiem numerowania jest liczba (z kropką lub nawiasem).
-		\begin{itemize}[label=-,labelsep=0.4cm,leftmargin=0.6cm]
-			\item drugi poziom (stosuje się wyłącznie punktowanie). Formatowanie: akapit
-			wyjustowany, wcięcie od lewej 1,25 cm, wysunięcie co 0,5 cm,
-			\item znakiem punktowania jest łącznik lub mała litera alfabetu (z nawiasem). Nie
-			zaleca się stosowania kropek, strzałek itp.,
-			\item punktowane akapity rozpoczyna się minuskułą (małą literą), na końcu akapitu
-			stawia się przecinek, ostatni punktowany akapit kończy się kropką.
-		\end{itemize}
-	\item Numerowane akapity rozpoczyna się majuskułą (wielką literą) i kończy kropką.
-	\item Należy zwrócić uwagę, aby nie rozdzielać numerowania/punktowania pomiędzy
-	kolejnymi stronami tekstu.
-\end{enumerate}
 
 
 {\subsection{Wydruk pracy}}
@@ -706,6 +871,15 @@ tytułowej oraz strony z podziękowaniem nie numeruje się. Spis treści rozpocz
 strony numer 3 (lub 5, jeżeli zamieszczono podziękowania).
 
 
+PO WNIOSKACH
+\section*{Załączniki}
+\addcontentsline{toc}{section}{Załączniki}
+
+Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał źródłowy (wydruk programu komputerowego, dokumentacja kons\-truk\-cyj\-no-\-tech\-no\-lo\-gicz\-na, konstrukcja modelu -- makiety -- urządzenia, instrukcja obsługi urządzenia lub stanowiska laboratoryjnego, zestawienie wyników pomiarów i obliczeń, informacyjne materiały katalogowe itp.).
+
+
+\clearpage
+
 \fi
 
 
@@ -714,20 +888,35 @@ strony numer 3 (lub 5, jeżeli zamieszczono podziękowania).
 
 \section{Podsumowanie i wnioski końcowe}
 
+W ramach niniejszej pracy zrealizowane zostały założone cele: 
+\begin{itemize}
+	\item zaprogramowano grę roguelike z mechanikami standardowymi dla klasycznych odsłon tego gatunku,
+	\item do gry dodano kilka nowoczesnych rozwiązań,
+	\item omówiono implementację mechanizmów rozgrywki,
+	\item w grze użyte zostały mapy generowane w sposób proceduralny,
+	\item omówiono rózńe metody użytych generatorów proceduralnych map.
+\end{itemize}
 
-problemy i rozwiazania:
-- mala widocznosc - powiekszono widok gry - przesuwajaca sie za graczm kamera
+Do gry wprowadzono nowe rozwiązania takie jak: system testowania i prezentowania proceduralnie generowanych map, system rozmieszczania na mapach przeciwników i przedmiotów oparty o wydzielone obszary mapy, oraz tablicę obiektów możliwych do pojawienia się na danym poziomie.
+\\
+
+Podczas realizacji pracy napotkano kilka problemów:
+
+Użyty rozmiar map, oraz rozmiar kwadratów na mapie 16x16 pikseli okazał się mało wyraźny, co tworzyło problemu w rozróżnieniu poszczególnych pól na mapie gry. Aby uniknąć zmiany rozmarów map, które wcześniej dostosowane były do rozmiaru okna zastosowano w trakcie gry znaczne przybliżenie wycentrowane na postać gracza i użyto grafik w formacie 32x32 piksele. Aby tester generatorów map wciąż mógł być w stanie przedstawić całą mapę na ekranie gry stosowane tam są oryginalne grafiki 16x16. \\
+
+
+Gra wykonana na potrzeby niniejszej pracy została napisana w sposób umożliwiający łatwą jej rozbudowę. Możliwe elementy gry, które można rozbudować to między innymi:
+\begin{itemize}
+	\item większa ilość przedmiotów i ich efektów -- obecnie w grze nie ma wielu przedmiotów, dodanie nowych ich typów z pewnością urozmaiciłoby rozgrywkę. Jako przykład można dodać mikstury zwiększające atak lub obronę bohatera na kilka tur,
+	\item dodanie nowych metod generowania map, -- nowe metody proceduralnego generowania map pozwolą na dodanie do gry kolejnych poziomów, co przedłuży i urozmaici rozgrywkę. Możliwe jest też dodanie poziomów opartych o obecnie zaimplementowane metody, ale manipulując ich konfiguracją, lub używając kilku metod na jednej mapie,
+	\item wprowadzenie nowych rodzajów przeciwników z interesującymi umiejętnościami -- obecnie przeciwnicy poza blopem nie różnią się od siebie niczym poza wartościami obrony i ataku oraz ekwipunkiem. Interesującym dodatkiem do gry będą przeciwnicy posiadający umiejętności, na przykład ognisty potwór mogący podpalić gracza, co będzie mu zadawało obrażenia przez kilka tur,
+	\item poprawa sztucznej inteligencji przeciwników -- w aktualnej wersji gry przeciwnicy mogą tylko podążać za graczem, jeśli jest on w ich polu widzenia, oraz atakować go, jeśli są bezpośrednio obok niego. Bardziej interesującym podejściem do przeciwników może być dodanie przeciwników, którzy nie zaatakują graca, dopóki sami nie zostaną zaatakowani, przeciwnicy mogliby też uciekać przed graczem, jeśli zostanie im bardzo mało punktów zdrowia.
+\end{itemize}
 
 
 \clearpage
 
-\section*{Załączniki}
-\addcontentsline{toc}{section}{Załączniki}
 
-Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał źródłowy (wydruk programu komputerowego, dokumentacja kons\-truk\-cyj\-no-\-tech\-no\-lo\-gicz\-na, konstrukcja modelu -- makiety -- urządzenia, instrukcja obsługi urządzenia lub stanowiska laboratoryjnego, zestawienie wyników pomiarów i obliczeń, informacyjne materiały katalogowe itp.).
-
-
-\clearpage
 
 \addcontentsline{toc}{section}{Literatura}
 
@@ -792,10 +981,17 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 % program do pixel art
 \bibitem{aseprite} Igara Studio S.A, Aseprite, 2001, https://www.aseprite.org.
 
+% mapy bsp
+\bibitem{bsp_source} http://www.roguebasin.com/index.php/Basic\_BSP\_Dungeon\_generation .
 
-% potencjalne zrodla:
 % algorytmy i struktury danych
+\bibitem{book_algo} Alfred V. Aho, John E. Hopcroft, Jeffrey D. Ullman, Algorytmy i struktury danych, Helion 2003.
 
+% ksiazka o cellulatr automata
+\bibitem{book_ca} Krzysztof Kułakowski, Automaty komórkowe, Akademia Górniczo-Hutnicza im. St. Staszica. Ośrodek Edukacji Niestacjonarnej, 2000.
+
+% artykuł o drunkard walk
+\bibitem{drunkard_walk} Gene Peterson, Drunken Walk Algorithm, https://blog.bitrageous.io/drunken-walk/ .
 
 
 %notatki, pytania
