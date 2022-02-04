@@ -288,8 +288,8 @@ Poniżej wyjaśnienie wszystkich komend dostępnych w grze w kolejności z rysun
 \end{enumerate}
 
 
-\subsection{Rozkład poziomów}
-Gra składa się z sześciu poziomów oferujących róznych przeciwników i przedmioty. W tej sekcji w celu prezentacji wyglądu poszczególnych poziomów posłużono się testerem proceduralnie generowanych map. Poziomy zaprezentowano w kolejności w jakiej występują one w trakcie rozgrywki.
+\subsection{Opis poziomów}
+Gra składa się z sześciu poziomów oferujących róznych przeciwników i przedmioty. W tej sekcji w celu prezentacji wyglądu poszczególnych poziomów posłużono się testerem proceduralnie generowanych map. Poziomy zaprezentowano w kolejności w jakiej występują one w trakcie rozgrywki. Mapy na poziomach 1-5 są proceduralnie generowane, więc przy każdej nowej rozgrywce ich wygląd będzie podobny, ale odmienny. Również rozmieszczenie przeciwników i przedmiotów na poziomach jest za każdym razem losowe. Akcja gry ma miejsce w podziemnych lochach połączonych z jaskiniami, kolejne poziomy są coraz głębiej w ziemie, dlatego są połączone ze sobą schodami. Gracz ma możliwość swobodnego wracania do poprzednich poziomów.
 
 \subsubsection{Poziom 1}
 Poziom pierwszy to kilka prostych pokojów połączonych ze sobą korytarzami, przykładowy układ tej mapy przedstawiono na rysunku \ref{mygame:map1}. Na poziomie tym napotkać można najprostszych przeciwników: 'blip' oraz 'goblin'. Istnieje też mała szansa, że w pokoju z golbinami pojawi się też trudniejszy przeciwnik -- 'orc'. Na poziomie tym znaleźć można podstawowy pancerz i miecz, a także mikstury uzdrawiające i zwoje uśpienia, które są szczególnie przydatne w walkach z trudniejszymi przeciwnikami w późniejszych poziomach.
@@ -361,13 +361,13 @@ Poziom szósty to ostatni poziom, cały będący otwartą przestrzenią. W tym p
 
 
 \subsection{Okno gry}
-Po rozpoczęciu nowej gry gracz zobaczy okno z wycinkiem mapy wycentrowanym na postać gracza, a także okno dziennika zdarzeń i pasek punktów życia, co pokazano na rysunku \ref{mygame:game_window}. Widok mapy jest powiększonym wycinkiem poziomu, przesuwającym się razem z graczem. W dzienniku zdarzeń zapisywane są wydarzenia z gry takie jak podnoszenie przedmiotu i ataki gracza lub przeciwników. Pasek życia posiada liczbową prezentację punktów życia w postaci [aktualne punkty zdrowia / maksymalne punkty zdrowia], oraz graficzną reprezentację -- czerwony pasek zmniejszający się wraz ze spadkiem zdrowia.
+Po rozpoczęciu nowej gry gracz zobaczy okno z wycinkiem mapy wycentrowanym na postać gracza, a także okno dziennika zdarzeń i pasek punktów życia, co pokazano na rysunku \ref{mygame:game_window}. Widok mapy jest powiększonym wycinkiem poziomu, przesuwającym się razem z graczem. Na mapie poza ścianami zaznazone są też pola podłogi za pomocą białej kropki. Jest to przydatne w grach opierającch się o ruch na siatce kwadratów do przeliczania odległości. W dzienniku zdarzeń zapisywane są wydarzenia z gry takie jak podnoszenie przedmiotu i ataki gracza lub przeciwników. Pasek życia posiada liczbową prezentację punktów życia w postaci [aktualne punkty zdrowia / maksymalne punkty zdrowia], oraz graficzną reprezentację -- czerwony pasek zmniejszający się wraz ze spadkiem zdrowia. Gracz posiada pole widzenia o określonym zasięgu, któro działa w sposób realistyczny to znaczy będąc blisko wejścia do pokoju jest on w stanie zobaczyć tylko jego skrawek, a nie cały pokój, co widać na rysunku \ref{mygame:game_window}. Poza aktualnie widzianymi polami postać gracza pamięta też obszary, które wcześniej zobaczyła, są one zaznaczone na szaro. Na obszarach, które gracz pamięta, ale nie widzi ich obecnie zaobserwować można tylko układ podłóg i ścian, przeciwników i przedmioty zauważyć można tylko w bezpośrednim polu widzenia.
 
 \FloatBarrier
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=16cm]{images/mygame/game_window.png}
-	\caption{Widok główny gry. 1 - aktualny wycinek mapy, 2 - dziennik zdarzeń, 3 - aktualny poziom, 4 - pasek zdrowia }
+	\caption{Widok główny gry. 1 - aktualny wycinek mapy, 2 - dziennik zdarzeń, 3 - aktualny poziom, 4 - pasek zdrowia. Żółta postać to gracz, a zielone postacie to gobliny -- jeden z typów przeciwników }
 	\label{mygame:game_window}
 \end{figure}
 \FloatBarrier
@@ -413,7 +413,7 @@ Po wybraniu przedmiotu wyświetla się menu wyboru akcji dostepnych dla każdego
 \subsubsection{Zbroje i bronie}
 Każda postać w grze posiada wartość obrony, która obniża wartość otrzymywanych obrażeń. Obronę zwiększyć można za pomocą zbroi zakładanych na poszczególne części ciała: głowę, tors, ręce oraz nogi. W grze w kolejnych poziomach spotkać można coraz lepsze zbroje, dzięki czemu postać gracza jest coraz wytrzymalsza.
 
-Podobnie jak obronę, postać gracza oraz przeciwnicy posiadają wartośc ataku, która określa ilość zadawanych w trakcie ataku obrażeń. Wartość tę można zwiększyć ekwipując bronie rozsiane po poziomach. Lepsze bronie znaleźć można w późniejszych poziomach, dzięki czemu gracz, który dokładnie eksploruje plansze będzie zadawał coraz więcej obrażeń.
+Podobnie jak obronę, postać gracza oraz przeciwnicy posiadają wartośc ataku, która określa ilość zadawanych w trakcie ataku obrażeń. Wartość tę można zwiększyć ekwipując bronie rozsiane po poziomach. Lepsze bronie znaleźć można w późniejszych poziomach, dzięki czemu gracz, który dokładnie eksploruje plansze będzie zadawał coraz więcej obrażeń. Reprezentację graficzną zbrój oraz broni zaobserwować można na rysunku \ref{mygame:item_room}.
 
 
 \subsubsection{Mikstury}
@@ -450,14 +450,90 @@ Dostępne w grze zwoje to
 	\item 'Teleport scroll' -- zwój teleportacji, natychmiast przenosi postać gracza w wybrane miejsce.	
 \end{itemize}
 
-\subsection{Przeciwnicy}
 
+\subsection{Tester proceduralnie generowanych poziomów}
+Gry roguelike opierają się w głównej mierze na proceduralnie generowanych poziomach, co oznacza generowanie map na podstawie algorytmów zawierających elementy losowości. Oznacza to na przykład, że użyty w niniejszej grze algorytm do generowania jaskiń zawsze wygeneruje poziom przypominający jaskinię, lecz za każdym razem inaczej wyglądający. Takie podejście do tworzenie poziomów pozwala znacznie zaosczędzić czas, który w standardowej metodzie byłby spędzony na ręcznie tworzenie poziomów. Mapy proceduralnie generowane są jednak podatne na błędy -- na przykład miejsca, do których nie da się dojść. W celu szybszego odnajdywania i naprawiania takich i podobnych błędów, a także w celu prezentacji możliwości zaimplementowanych algorytmów stworzono menu do testowania generatorów map, zaprezentowane na rysunku \ref{mygame:gen_test}. Menu to dostępne jest w głównym menu gry po wybraniu opcji 'Test Map Generators'.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{images/mygame/gen_test.png}
+	\caption{Menu testera proceduralnie generowanych map}
+	\label{mygame:gen_test}
+\end{figure}
+\FloatBarrier
+
+Klawiszami strzałek oraz klawiszem Enter wybiera się opcję, klawiszem Esc można powrócić do głównego menu gry. Opcje dostępne w menu to:
+
+\begin{enumerate}[label=\alph*), leftmargin=1.25cm]
+	\item 'Show steps' -- zmiana opcji pokazania kroków generacji w trakcie testowania generatorów. 'true' oznacza włączenie pokazu kroków, 'false' wyłączenie,
+	\item 'Test Basic Dungeon Generator' -- testowanie generacji poziomu 1,			
+	\item 'Test Cellular Automata Cave Generator' -- testowanie generacji poziomu 3,
+	\item 'Test Binary Space Partitioning dungeons Generator' -- testowanie generacji poziomu 2.
+	\item 'Test Binary Space Partitioning Interior Generator' -- testowanie generacji poziomu 5.
+	\item 'Test Drunkard walk map generator' -- testowanie generacji poziomu 4.
+\end{enumerate}
+
+Po wybrania generatora map otwiera się okno zaprezentowane na rysunku \ref{mygame:window_tester}. W głównej części zaprezentowany jest aktualny stan mapy w przypadku pokazu z krokami, lub finalny efekt generacji planszy w przypadku wyłączenia kroków. W dolnej części okna znajdują się informacje o numerze aktualnego kroku, oraz jego opisie. Klawiszem Esc powrócić można do menu testera, klawiszem spacji generuje się nową mapę lub przechodzi do kolejnego kroku.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{images/mygame/window_tester.png}
+	\caption{Okno testera wybranego genratora map}
+	\label{mygame:window_tester}
+\end{figure}
+\FloatBarrier
+
+Na rysunku \ref{mygame:tester_steps} przedstawiono częśc kroków generacji mapy do poziomu trzeciego, na rysunku \ref{mygame:tester_nosteps} pokazano przykładowe wygenerowane mapy do poziomu drugiego.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/mygame/tester_steps.png}
+	\caption{Przykład testowania z krokami generacji mapy do poziomu trzeciego}
+	\label{mygame:tester_steps}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/mygame/tester_nosteps.png}
+	\caption{Przykład testowania bez kroków generacji mapy do poziomu drugiego}
+	\label{mygame:tester_nosteps}
+\end{figure}
+\FloatBarrier
 
 \clearpage	
 
 
 
 \section{Technologie i implementacja}
+W niniejszym rozdziale opisano technologie, architekturę oraz algorytmy użyte do implementacji gry.
+
+
+\subsection{Technologie}
+Do zaprogramowania gry użyto języka Rust, będącego kompilowalnym językiem ogólnego przeznaczenia, powstałym w 2010 roku \cite{book_rust}. Język Rust wydajnościowo jest porównywalny do języka C++, lecz jest to język nowocześniejszy i bezpieczniejszy \cite{rust_vs_cpp}. Język jest dużo bardziej restrykcyjny już na poziomie kompilacji, dzięki czemu błędy są częściej wykrywane w trakci kompilacji, niż dopiero po uruchomieniu programu. Użyto też wbudowanych w język narzędzi do formatowania 'cargo fmt' oraz lintera 'cargo clippy' -- który wykrywa niegroźne błędy nie wykrywane przez kompilator, ale utrudniające czytelność kodu. Te cechy oraz narzędzia języka Rust znacznie ułatwiają stosowanie zasad czystego kodu \cite{book_czystykod}.
+
+Do edycji kodu użyty został program Visual Studio Code \cite{vs_code} z rozszerzeniami dla języka Rust, przede wszystkim 'rust-analyzer` zapewniający kolorowanie składni, oraz automatyczne uzupełnianie kodu.
+
+W programie użyto wielu tworzonych przez społeczność bibliotek open source -- zapewniających prawo do korzystania, oraz dostęp do kodu źródłowego. Najważniejsze użyte biblioteki to:
+\begin{itemize}
+	\item `rltk` -- tworzenie okna gry, obsługa grafiki oraz pętli głównej gry,
+	\item 'specs' -- implementacja architektury Entity Component System.
+\end{itemize}
+
+Gra posiada grafikę typu pixel art w formacie 16x16 pikseli, w oknie gry użyto dwukrotnie powięszonych obrazków w formacie 32x32 w celu polepszenia widoczności. Oryginalny format 16x16 używany jest w testerze proceduralnego generowania map w celu zaprezentowania całych map w jednym oknie. Do tworzenia grafiki użyto programu Aseprite \cite{aseprite} będącego wygodnym narzędziem graficznym wyspecjalizowanym w tworzeniu grafiki pixel art. Wszystkie obrazki użyte w grze znajdują się w folderze 'resources' w dwóch plikach, odpowiednio 'sprite\_sheet\_16x16.png' oraz 'sprite\_sheet\_32x32.png'. Taki format przechowywania obrazków zapewnia porządek w folderach gry, dostęp do konkretnego obrazka odbywa się przez określenie wymiarów oraz podaniu indeksu. Aby uzyskać obrazek przedstawiający gracza z pliku 'sprite\_sheet\_16x16.png' przedstawionego na rysunku \ref{mygame:spritesheet} należy określić rozmiary -- 16x16 pikseli oraz podać indeks 2 -- obrazki są indeksowane od lewej do prawej, pierwszy element ma indeks zero.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{images/mygame/spritesheet.png}
+	\caption{Grafiki użyte w grze}
+	\label{mygame:spritesheet}
+\end{figure}
+\FloatBarrier
 
 
 
@@ -473,25 +549,7 @@ Dostępne w grze zwoje to
 
 
 
-
-
-
-
-
-
-
-
-
-
-\begin{enumerate}[label=\alph*), leftmargin=1.25cm] 
-	\item założenia – dane,
-	\item opis zastosowanej metody rozwiązania lub analizy,
-	\item opis proponowanego rozwiązania, wyniki analizy teoretycznej, obliczenia, projekt konstrukcyjny, procesowy, technologiczny,
-	\item wyniki badań analitycznych, symulacyjnych lub eksperymentalnych itp.
-\end{enumerate}
-
-
-
+\iffalse
 
 
 {\subsubsection{Listingi programów}}
@@ -576,6 +634,11 @@ należy ponumerować strony (czcionka 10 pkt., dół strony, akapit wyśrodkowan
 tytułowej oraz strony z podziękowaniem nie numeruje się. Spis treści rozpoczyna się od
 strony numer 3 (lub 5, jeżeli zamieszczono podziękowania).
 
+
+\fi
+
+
+
 \clearpage
 
 \section{Podsumowanie i wnioski końcowe}
@@ -642,11 +705,36 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 % gra planszowa na podstawie tboi zebrala milion w tydzien
 \bibitem{tboi_4souls} Stefanie Fogel, ‘The Binding of Isaac’ Card Game Surpasses 1 Million on Kickstarter in Just Over a Week, https://variety.com/2018/gaming/news/the-binding-of-isaac-four-souls-kickstarter-1202868455/
 
-% potencjalne zrodla:
+
+% ksiazka Rust
+\bibitem{book_rust}  Steve Klabnik , Carol Nichols, The Rust Programming Language, No Starch Press, 2019.
+
+% rust vs c++
+\bibitem{rust_vs_cpp} Ben Fenwick, C++ v. Rust -Speed, Safety, \& Community Comparison, https://devetry.com/blog/c-v-rust-speed-safety-community-comparison/ .
+
 % czysty kod
-% ksiazka o rust
-% ksiazka o vs Code ??
+\bibitem{book_czystykod} Robert C. Martin, Czysty kod. Podręcznik dobrego programisty, Helion, 2014.
+
+% vs code
+\bibitem{vs_code} Microsoft, Visual Studio Code, 2015, https://code.visualstudio.com .
+
+% program do pixel art
+\bibitem{aseprite} Igara Studio S.A, Aseprite, 2001, https://www.aseprite.org.
+
+
+% potencjalne zrodla:
 % algorytmy i struktury danych
+
+
+
+%notatki, pytania
+\iffalse
+czy dodac podrozdzial o przeciwnikach do opisu gry (okolo 1- 1.5 strony z obrazkami)
+czy dodac zrodla o bibliotekach (2 strony github / crates.io)
+czy w technologiach pisac o uzyciu gita i githuba + zrodlo github
+
+
+\fi
 
 
 \end{thebibliography}
