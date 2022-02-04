@@ -178,7 +178,7 @@ W grze The Binding of Isaac za sterowanie postacią odpowiadają klawisze 'W', '
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=12cm]{images/tboi/scr3.png}
-	\caption{Przykład układ poziomów w The Binding of Isaac: Rebirth}
+	\caption{Przykładowe układy poziomów w The Binding of Isaac: Rebirth}
 	\label{tboi:scr3}
 \end{figure}
 \FloatBarrier
@@ -186,7 +186,8 @@ W grze The Binding of Isaac za sterowanie postacią odpowiadają klawisze 'W', '
 Jedną z cech gier gatunku roguelike, które implementuje The Binding of Isaac jest permadeath. W porównaniu jednak do innych do tytułów, na których ukończenie trzeba często poświęcić parę godzi, The Binding of Isaac sprawnemu graczowi zajmie około godzinę na ukończenie, w wyniku czego rozpoczynanie rozgrywki od początku nie jest tak dotkliwe, i zachęca do częstego powtórnego przechodzenia gry.
 
 
-The Binging of Isaac: Rebirth jest jedną z najbardziej popularnych gier z gatunku roguelike, na serwisie Steam posiada 166244 opini, w tym 97\% pozytwnych (stan na luty 2022) \cite{tboi_steam}. Dowodzi to, że przeciętny gracz woli dynamiczną, rozgrywaną w czasie rzeczywistym rozgrywkę od wolnej, taktycznej rozgrywki turowej.
+The Binging of Isaac: Rebirth jest jedną z najbardziej popularnych gier z gatunku roguelike, na serwisie Steam posiada 166244 opini, w tym 97\% pozytwnych (stan na luty 2022) \cite{tboi_steam}. Dowodzi to, że przeciętny gracz woli dynamiczną, rozgrywaną w czasie rzeczywistym rozgrywkę od wolnej, taktycznej rozgrywki turowej. Kolejnym dowodem popularności tej gry jest wydana w 2018 roku gra planszowa The Binding of Isaac: Four Souls, która w tydzień zebrała ponad milion dolarów na crowdfundingowym serwisie Kickstarter \cite{tboi_4souls}.
+
 
 
 \clearpage	
@@ -197,8 +198,81 @@ W ninejszym rozdziale przedstawiono wszystkie elementy i możliwości gry z gatu
 
 
 \subsection{Główne założenia}
+Gra stworzona na potrzeby nieniejszej pracy spełnia podstawowe cechy klasycznych gier z gatunku roguelike:
+
+\begin{itemize}
+	\item oparta jest o system turowy,
+	\item zawiera plansze generowane proceduralnie,
+	\item rozmieszczenie przeciwników i przedmiotów jest losowe,
+	\item mapy są w postaci siatki kwadratów, ruch postaci oraniczony jest do poruszania się po nich,
+	\item postać gracza posiada ekwipunek, który może założyć -- zbroje i bronie,
+	\item gra posiada przedmioty, które można użyć -- mikstury i magiczne zwoje,
+	\item permadeath - śmierć kończy rozgrwkę, brak możliwości zapisu i wczytania stanu rozgrywki.		
+\end{itemize}
+
+Projekt gry posiada też kilka bardziej nowoczesnych aspektów:
+\begin{itemize}
+	\item grafika typu pixel art,
+	\item rozwinięty, prostszy w użytkowaniu interfejs,			
+	\item system prezentowania z krokami proceduralnego generowania map.
+\end{itemize}
+
+Gra składa się z sześciu różnorodnych, proceduralnie generowanych poziomów, gracz napotyka coraz trudniejszych przeciwników w kolejnych poziomach, a także znajduje coraz lepszy ekwipunek i przedmioty. Celem gry jest pokonanie ostatniego przeciwnika "Mighty Blop", znajdującego się w ostatnim poziomie. Często takiego ostatniego, najsilniejszego przeciwnika określa się w grach jako "Boss". Aby przejść grę gracz powinien eksplorować kolejne poziomy w celu odnalezienia coraz silniejszych przedmiotów i ekwipunku, które niezbędne są przy walce z trudniejszymi przeciwnikami.  Gra osadzona jest w fantastycznym, średniowiecznym świecie, w którym spotkać można rycerzy, gobliny i orków, a także magiczne mikstury i zwoje.
 
 
+\subsection{Opis menu głównego gry}
+Po uruchomieniu gry pierwsze co zobaczy gracz to główne menu przedstawione na rysunku \ref{mygame:scr1}. Menu składa się z żółtego tytułu gry, oraz czterech opcji. Poruszać się po menu można za pomocą klawiszy strzałek, aktualnie wybrana opcja jest zaznaczona na zielono, a wybór opcji przeprowadzany jest klawiszem enter.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{images/mygame/scr1.png}
+	\caption{Menu główne gry}
+	\label{mygame:scr1}
+\end{figure}
+\FloatBarrier
+
+Menu składa się z następujących opcji:
+\begin{itemize}
+	\item 'New Game' -- rozpoczęcie nowej gry,
+	\item 'Test Map Generators' -- otwiera menu testera proceduralnego generowania map,			
+	\item 'Controls' -- otwiera listę komend dostępnych w grze,
+	\item 'Quit' -- zamknięcie programu.
+\end{itemize}
+
+
+\subsection{Sterowanie w grze}
+ Główną metodą poruszania się postacią jest klawiatura numeryczna, co używane jest od dawna w gatunku roguelike. Jest to także najwygodniejsza kombinacja klawiszy przy możliwości ruchu w ośmiu kierunkach -- dół, gór, prawo, lewo oraz skosy, schemat poruszania się przy użyciu klawiatury numerycznej przedstawiono na rysunku \ref{numpad_controls}. Nie wszystkie klawiatury, a szczególnie te w laptopach, posiadają klawiaturę numeryczną, dlatego gra posiada też alternatywne sterowanie oparte o klawisze strzałek i klawisze liter. Klaiwsz '5' w przypadku klawiatury numerycznej używany jest do pomijania tury, co jest istotną możliwością w grze turowej. Jednokrotne naciśnięcie klaiwsza odpowiadającego za ruch w danym kierunku porusza postać gracza o jedno pole w danym kierunku, jeżeli nie jest ono zajmowane przez ścianę. Jeśli pole na które porusza się gracz zajmowane jest przez przeciwnika, to zamiast ruchu postać gracza wykona atak przeciwko temu przeciwnikowi, jest to standardowa metoda ataku w tego typu grach.
+ 
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4cm]{images/custom/numpad_controls.png}
+	\caption{Schemat sterowania na klawiaturze numerycznej}
+	\label{numpad_controls}
+\end{figure}
+\FloatBarrier
+
+Objaśnienia sterowania i lista dostępnych akcji w grze z menu głównego za pomocą opcji 'Controls' na rysunku \ref{mygame:scr2} przedstawiono widok dostępny po wybraniu tej opcji.
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm]{images/mygame/scr2.png}
+	\caption{Objaśnienia sterowania w grze}
+	\label{mygame:scr2}
+\end{figure}
+\FloatBarrier
+
+
+Poniżej wyjaśnienie wszystkich komend dostępnych w grze w kolejności z rysunku \ref{mygame:scr2}, Oznaczenie NumpadX oznacza klawisz cyfry X z klawiatury numerycznej. Oznaczenie 'X' oznacza klawisz litery lub znaku X:
+
+\begin{enumerate}
+	\item Numpad8 / klawisz strzałki w górę -- poruszenie się w górę,
+	\item 'Test Map Generators' -- otwiera menu testera proceduralnego generowania map,			
+	\item 'Controls' -- otwiera listę komend dostępnych w grze,
+	\item 'Quit' -- zamknięcie programu.
+\end{enumerate}
 
 
 
@@ -381,6 +455,9 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 
 %The binding of isaac w serwisie Steam
 \bibitem{tboi_steam} https://store.steampowered.com/app/250900/The\_Binding\_of\_Isaac\_Rebirth/
+
+% gra planszowa na podstawie tboi zebrala milion w tydzien
+\bibitem{tboi_4souls} Stefanie Fogel, ‘The Binding of Isaac’ Card Game Surpasses 1 Million on Kickstarter in Just Over a Week, https://variety.com/2018/gaming/news/the-binding-of-isaac-four-souls-kickstarter-1202868455/
 
 % potencjalne zrodla:
 % czysty kod
