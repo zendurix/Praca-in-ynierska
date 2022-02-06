@@ -75,7 +75,7 @@ Do sterowania w Rogue używana jest tylko klawiatura, do poruszania przeznaczone
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=8cm]{images/rogue/scr2.png}
+	\includegraphics[width=10cm]{images/rogue/scr2.png}
 	\caption{Ekran ekwipunku w Rogue}
 	\label{Rogue:scr2}
 \end{figure}
@@ -128,7 +128,7 @@ Podobnie jak w grze Rogue, tutaj również do poruszania się używana jest klaw
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=8cm]{images/caves_of_qud/scr3.png}
+	\includegraphics[width=65mm]{images/caves_of_qud/scr3.png}
 	\caption{Zrzut ekranu z gry Caves of Qud}
 	\label{CoQ:scr3}
 \end{figure}
@@ -151,7 +151,7 @@ Gra Caves of Qud znacznie rozwija aspekt RPG -- odgrywania postaci. W trakcie wy
 
 W Caves of Qud proceduralne generowanie używane jest nie tylko do generowania map. W grze można znaleźć duże ilości proceduralnie tworzonych książek, z których część dotyczy także samej fabuły gry \cite{coq_history}. Oznacza to, że poza niektórymi, stałymi we wszystkich rozgrywkach, aspektami historii również część fabuły będzie inna w każdej nowej rozgrywce.
 
-W odróżnieniu od większości gier tego typu, Caves of Qud posiada mocno rozwiniętą historię i rozbudowane główne zadania fabularne. Poza główną linią zadań gra oferuje też sporo losowych, które jednak są dosyć proste i najczęściej sprowadzają się do zdobycia konkretnego przedmiotu lub znalezienia jakiegoś miejsca. Główne zadania są różnorodne, często polegają na odwiedzaniu fabularnych, rozbudowanych lokacji, obronie miasta przed atakiem lub nawet rozwiązywania zagadek.
+W odróżnieniu od większości gier tego typu, Caves of Qud posiada mocno rozwiniętą historię i rozbudowane główne zadania fabularne. Poza główną linią zadań gra oferuje też sporo losowych, które jednak są dosyć proste i najczęściej sprowadzają się do zdobycia konkretnego przedmiotu lub znalezienia jakiegoś miejsca. Główne zadania są różnorodne, często polegają na odwiedzaniu fabularnych, rozbudowanych lokacji, obronie miasta przed atakiem lub nawet rozwiązywania zagadek.\\
 
 Biorąc pod uwagę fakt, że klasyczne gry typu roquelike posiadające dość wysoki poziom trudności rozgrywki, wciąż uznawane są za dość niszowy gatunek. Poszczególne gry zyskują jednak relatywnie dużą popularność, czego przykladem jest Caves Qud, które w serwisie Steam posiada 4356 z czego 95\% jest pozytywnych (stan na luty 2022) \cite{coq_steam}.
 
@@ -339,7 +339,7 @@ Poziom drugi to bardziej rozwinięta wersja poziomu pierwszego z większą liczb
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm]{images/mygame/map2.png}
+	\includegraphics[width=14cm]{images/mygame/map2.png}
 	\caption{Przykładowy układ poziomu drugiego}
 	\label{mygame:map2}
 \end{figure}
@@ -418,12 +418,11 @@ Po wybraniu przedmiotu wyświetla się menu wyboru akcji dostepnych dla każdego
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=8cm]{images/mygame/item_menu.png}
+	\includegraphics[width=75mm]{images/mygame/item_menu.png}
 	\caption{Okno akcji przedmiotu z ekwipunku}
 	\label{mygame:item_menu}
 \end{figure}
 \FloatBarrier
-
 
 \subsubsection{Zbroje i bronie}
 Każda postać w grze posiada wartość obrony, która obniża wartość otrzymywanych obrażeń. Obronę zwiększyć można za pomocą zbroi zakładanych na poszczególne części ciała: głowę, tors, ręce oraz nogi. W grze w kolejnych poziomach spotkać można coraz lepsze zbroje, dzięki czemu postać gracza jest coraz wytrzymalsza.
@@ -595,7 +594,7 @@ Plik 'main.rs' zawiera funkcję główną programu: 'main()'. W tej funkcji dekl
 W pliku 'rng.rs' zawarto funkcje do losowania liczb używane w generatorach map, a także przy rozmieszczaniu na nich przeciwników i przedmiotów.
 
 \subsubsection{Architektura Entity Component System}
-Twórcy gier gatunku roguelike dzięki prostej grafice mogą poświęcić więcej czasu na tworzenie skomplikowanych, interesujących mechanik. Szczególnie przydatną w tworzeniu takich skomplikowanych mechanik jest architektura Enitity Component System (Encja, Komponent, System), nazywana dalej ECS TODO [zrodlo ecs], skupiająca się na rozdzieleniu danych od systemów. Dzięki użyciu biblioteki 'specs' pominięto etap implementowania architektury ECS, skupiono się wyłącznie na jej użyciu. Elementami ECS są :
+Twórcy gier gatunku roguelike dzięki prostej grafice mogą poświęcić więcej czasu na tworzenie skomplikowanych, interesujących mechanik. Szczególnie przydatną w tworzeniu takich skomplikowanych mechanik jest architektura Enitity Component System (Encja, Komponent, System), nazywana dalej ECS \cite{ecs_source}, skupiająca się na rozdzieleniu danych od systemów. Dzięki użyciu biblioteki 'specs' pominięto etap implementowania architektury ECS, skupiono się wyłącznie na jej użyciu. Elementami ECS są :
 
 \begin{itemize}
 	\item 'Entity' -- encja, jest to indeks reprezentujący dany obiekt w grze na przykład gracza, przeciwnika lub przedmiot,
@@ -797,7 +796,7 @@ Ostatnim krokiem jest połączenie ze sobą pokojów za pomocą korytarzy. Dzię
 \FloatBarrier
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm]{images/generators/bsp_done.png}
+	\includegraphics[width=14cm]{images/generators/bsp_done.png}
 	\caption{Mapa wygenerowana za pomocą algorytmu binarnego podziału przestrzeni}
 	\label{generators:bsp_done}
 \end{figure}
@@ -805,15 +804,16 @@ Ostatnim krokiem jest połączenie ze sobą pokojów za pomocą korytarzy. Dzię
 
 
 \subsubsection{Poziom trzeci -- Cellular automata}
-Generacja poziomu rzeciego oparta jest o automat komórkowy \cite{book_ca}, będący kwadratową siatką pól mogących być żywmi lub martwymi, których kolejny stan zależy od poprzedniego, oraz od ustalonych warunków. W kreowaniu mapy za pomocą tej metody za żywe uznano pola będące podłogą, a za martwe pola będące ścianą. W pierwszym kroku każde pole na mapie w losowy sposób staje się żywe lub martwe. W kolejnych krokach o ustalonej ilości stan każdej komórki na mapie zmienia się według tego, czy jest ona żywa lub martwa, oraz ilu posiada żywych sąsiadów -- pól stykających się z daną komórką:
+Generacja poziomu rzeciego oparta jest o automat komórkowy \cite{book_ca}, będący kwadratową siatką pól mogących być żywymi lub martwymi, których kolejny stan zależy od poprzedniego oraz od ustalonych warunków. W kreowaniu mapy za pomocą tej metody za żywe uznano pola będące podłogą, a za martwe pola będące ścianą. W pierwszym kroku każde pole na mapie w losowy sposób staje się żywe lub martwe. W kolejnych krokach o ustalonej ilości, stan każdej komórki na mapie zmienia się według tego czy jest ona żywa czy martwa, oraz ilu posiada żywych sąsiadów -- pól stykających się z daną komórką:
 
 \begin{itemize}
-	\item jeśli komórka jest żywa, oraz posiada mniej niż trzech żywych sąsiadów to w kolejnym kroku będzie martwa,
+	\item jeśli komórka jest żywa oraz posiada mniej niż trzech żywych sąsiadów to w kolejnym kroku będzie martwa;
 	\item jeśli komórka jest martwa i posiada więcej niż czterech żywych sąsiadów to w kolejnym kroku będzie żywa.
 \end{itemize}
 
-Ostatnim krokiem jest usunięcię wszystkich nie połączonych ze sobą obszarów, poza największym.
-Za pomocą manipulowania zasadami tego algorytmu można w łatwy sposób zmieniać wygląd wygenerowanych plansz, przykładowo na rysunku \ref{generators:ca_diff} po lewej stronie znajduje się mapa wygenerowana według standardowych zasad użytych w grze, a po prawej mapa, w której podłoga uznawana jest za martwą komórkę, a ściana za żywą.
+Ostatnim krokiem jest usunięcie wszystkich niepołączonych ze sobą obszarów, poza największym.
+
+Za pomocą manipulowania zasadami tego algorytmu można w łatwy sposób zmieniać wygląd wygenerowanych plansz. Przykładowo na rysunku \ref{generators:ca_diff} po lewej stronie znajduje się mapa wygenerowana według standardowych zasad użytych w grze, a po prawej mapa, w której podłoga uznawana jest za martwą komórkę, a ściana za żywą.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -825,15 +825,15 @@ Za pomocą manipulowania zasadami tego algorytmu można w łatwy sposób zmienia
 \FloatBarrier
 
 
-\subsubsection{Poziom czwarty}
-Generator map użyty w poziomie czwartym oparty jest o algorytm Drunkard Walk. W celu przystępniejszego wytłumaczenia zasad tego algorytmu posłużono się postacią górnika, który chodząc po planszy wykopuje kolejne pola, zamieniając je w podłogi. W implementacji użytej na potrzeby tej gry algorytm wykonuje się w następujących krokach:
+\subsubsection{Poziom czwarty -- Drunkard Walk}
+Generator map użyty w poziomie czwartym oparty jest o algorytm Drunkard Walk. W celu przystępniejszego wytłumaczenia zasad tego algorytmu posłużono się postacią górnika, który chodząc po planszy wykopuje kolejne pola, zamieniając je w podłogi. W implementacji użytej na potrzeby tej gry, algorytm wykonuje się w następujących krokach:
 
 \begin{itemize}
 	\item wszystkie pola na mapie zamieniane są na ściany,
 	\item następnie dopóki określona przestrzeń mapy nie będzie podłogą wykonuje się następujące kroki:
 	\begin{enumerate}
-		\item w centralnym polu mapy umieszcza się górnika,
-		\item w określonej ilości ruchów górnik porusza się o jedno pole w losowym kierunku, każde pole, po którym przejdzie zamienia się w podłogę,
+		\item w centralnym polu mapy umieszcza się górnika;
+		\item w określonej ilości ruchów górnik porusza się o jedno pole w losowym kierunku, każde pole, po którym przejdzie zamienia się w podłogę;
 		\item jeśli górnikowi skończyły się ruchy, a mapa wciąż nie zawiera określonej ilości miejsc nie będących ścianami powraca się do punktu 1.
 	\end{enumerate}	
 \end{itemize}
@@ -849,7 +849,9 @@ W wyniku tego algorytmu otrzymać można mapy, których przykłady zaprezentowan
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Poziom piąty}
+\clearpage
+
+\subsubsection{Poziom piąty -- Binary Space Partitioning}
 Poziom piąty korzysta z tej samej metody Binary Space Partitioning, co poziom drugi, lecz pokoje w nim zajmują całe obszary przypisane do węzłów będącymi liścmi drzewa. Pozwala to na wygenerowanie mapy podzielonej na pokoje bezspośrednio ze sobą połączone, bez użycia korytarzy. Na rysunku \ref{generators:bsp_diff} zaprezentowano porównanie mapy z poziomu drugiego z mapą z poziomu piątego.
 	
 \FloatBarrier
@@ -901,33 +903,33 @@ Według potrzeb zawarte i uporządkowane uzupełnienie pracy o dowolny materiał
 
 \clearpage
 
-\section{Podsumowanie i wnioski końcowe}
+\section*{Podsumowanie i wnioski końcowe}
 
 W ramach niniejszej pracy zrealizowane zostały założone cele: 
 \begin{itemize}
-	\item zaprogramowano grę roguelike z mechanikami standardowymi dla klasycznych odsłon tego gatunku,
-	\item do gry dodano kilka nowoczesnych rozwiązań,
-	\item omówiono implementację mechanizmów rozgrywki,
-	\item w grze użyte zostały mapy generowane w sposób proceduralny,
-	\item omówiono rózńe metody użytych generatorów proceduralnych map.
+	\item zaprogramowano grę roguelike z mechanikami standardowymi dla klasycznych odsłon tego gatunku;
+	\item do gry dodano kilka nowoczesnych rozwiązań;
+	\item omówiono implementację mechanizmów rozgrywki;
+	\item w grze użyte zostały mapy generowane w sposób proceduralny;
+	\item omówiono różne metody użytych generatorów proceduralnych map.
 \end{itemize}
 
-Do gry wprowadzono nowe rozwiązania takie jak: system testowania i prezentowania proceduralnie generowanych map, system rozmieszczania na mapach przeciwników i przedmiotów oparty o wydzielone obszary mapy, oraz tablicę obiektów możliwych do pojawienia się na danym poziomie.
+Do gry wprowadzono nowe rozwiązania takie jak system testowania i prezentowania proceduralnie generowanych map, system rozmieszczania na mapach przeciwników i przedmiotów oparty o wydzielone obszary mapy oraz tablicę obiektów możliwych do pojawienia się na danym poziomie.
 \\
 
 Podczas realizacji pracy napotkano kilka problemów:
 
-W celu prezentacji kroków proceduralnego generowania map problemem było wyświetlanie aktualnego stanu mapy w trakcie pracy generatora. Rozwiązaniem było zapisywanie w trakcie generacji aktualnych stanów mapy w kluczowych momentach do wektora będącego historią generacji. W każdym generatorze zaimplementowano możliwość tworzenia takiej histori, którą mógł zwrócić po skończeniu generowania mapy. Wyświetlenie kroków polegało poźniej na wyświetlaniu kolejnych pozycji z tego wektora.
+W celu prezentacji kroków proceduralnego generowania map problemem było wyświetlanie aktualnego stanu mapy w trakcie pracy generatora. Rozwiązaniem było zapisywanie w trakcie generacji aktualnych stanów mapy w kluczowych momentach do wektora będącego historią generacji. W każdym generatorze zaimplementowano możliwość tworzenia takiej historii, którą mógł zwrócić po skończeniu generowania mapy. Wyświetlenie kroków polegało później na wyświetlaniu kolejnych pozycji z tego wektora.
 
-Użyty rozmiar map, oraz rozmiar kwadratów na mapie 16x16 pikseli okazał się mało wyraźny, co tworzyło problemu w rozróżnieniu poszczególnych pól na mapie gry. Aby uniknąć zmiany rozmarów map, które wcześniej dostosowane były do rozmiaru okna zastosowano w trakcie gry znaczne przybliżenie wycentrowane na postać gracza i użyto grafik w formacie 32x32 piksele. Aby tester generatorów map wciąż mógł być w stanie przedstawić całą mapę na ekranie gry stosowane tam są oryginalne grafiki 16x16. \\
+Użyty rozmiar map oraz rozmiar kwadratów na mapie 16x16 pikseli okazał się mało wyraźny, co tworzyło problemy w rozróżnieniu poszczególnych pól na mapie gry. Aby uniknąć zmiany rozmiarów map, które wcześniej dostosowane były do rozmiaru okna zastosowano w trakcie gry znaczne przybliżenie wycentrowane na postać gracza i użyto grafik w formacie 32x32 piksele. Aby tester generatorów map wciąż mógł być w stanie przedstawić całą mapę na ekranie gry stosowane tam są oryginalne grafiki 16x16. \\
 
 
 Gra wykonana na potrzeby niniejszej pracy została napisana w sposób umożliwiający łatwą jej rozbudowę. Możliwe elementy gry, które można rozbudować to między innymi:
 \begin{itemize}
-	\item większa ilość przedmiotów i ich efektów -- obecnie w grze nie ma wielu przedmiotów, dodanie nowych ich typów z pewnością urozmaiciłoby rozgrywkę. Jako przykład można dodać mikstury zwiększające atak lub obronę bohatera na kilka tur,
-	\item dodanie nowych metod generowania map, -- nowe metody proceduralnego generowania map pozwolą na dodanie do gry kolejnych poziomów, co przedłuży i urozmaici rozgrywkę. Możliwe jest też dodanie poziomów opartych o obecnie zaimplementowane metody, ale manipulując ich konfiguracją, lub używając kilku metod na jednej mapie,
-	\item wprowadzenie nowych rodzajów przeciwników z interesującymi umiejętnościami -- obecnie przeciwnicy poza blopem nie różnią się od siebie niczym poza wartościami obrony i ataku oraz ekwipunkiem. Interesującym dodatkiem do gry będą przeciwnicy posiadający umiejętności, na przykład ognisty potwór mogący podpalić gracza, co będzie mu zadawało obrażenia przez kilka tur,
-	\item poprawa sztucznej inteligencji przeciwników -- w aktualnej wersji gry przeciwnicy mogą tylko podążać za graczem, jeśli jest on w ich polu widzenia, oraz atakować go, jeśli są bezpośrednio obok niego. Bardziej interesującym podejściem do przeciwników może być dodanie przeciwników, którzy nie zaatakują graca, dopóki sami nie zostaną zaatakowani, przeciwnicy mogliby też uciekać przed graczem, jeśli zostanie im bardzo mało punktów zdrowia.
+	\item większa ilość przedmiotów i ich efektów -- obecnie w grze nie ma wielu przedmiotów, dodanie nowych ich typów z pewnością urozmaiciłoby rozgrywkę. Jako przykład można dodać mikstury zwiększające atak lub obronę bohatera na kilka tur;
+	\item dodanie nowych metod generowania map -- nowe metody proceduralnego generowania map pozwolą na dodanie do gry kolejnych poziomów, co przedłuży i urozmaici rozgrywkę. Możliwe jest też dodanie poziomów opartych o obecnie zaimplementowane metody, ale manipulując ich konfiguracją, lub używając kilku metod na jednej mapie;
+	\item wprowadzenie nowych rodzajów przeciwników z interesującymi umiejętnościami -- obecnie przeciwnicy poza blopem nie różnią się od siebie niczym poza wartościami obrony i ataku oraz ekwipunkiem. Interesującym dodatkiem do gry będą przeciwnicy posiadający umiejętności, na przykład ognisty potwór mogący podpalić gracza, co będzie mu zadawało obrażenia przez kilka tur;
+	\item poprawa sztucznej inteligencji przeciwników -- w aktualnej wersji gry przeciwnicy mogą tylko podążać za graczem, jeśli jest on w ich polu widzenia oraz atakować go, jeśli są bezpośrednio obok niego. Bardziej interesującym podejściem może być dodanie przeciwników, którzy nie zaatakują gracza, dopóki sami nie zostaną zaatakowani, przeciwnicy mogliby też uciekać przed graczem, jeśli zostanie im bardzo mało punktów zdrowia.
 \end{itemize}
 
 
@@ -1000,6 +1002,9 @@ Gra wykonana na potrzeby niniejszej pracy została napisana w sposób umożliwia
 
 % program do pixel art
 \bibitem{aseprite} Igara Studio S.A, Aseprite, 2001, https://www.aseprite.org.
+
+% artykul o ECS
+\bibitem{ecs_source} Richard Lord, Why use an Entity Component System architecture for game development?, https://www.richardlord.net/blog/ecs/why-use-an-entity-framework.html .
 
 % mapy bsp
 \bibitem{bsp_source} http://www.roguebasin.com/index.php/Basic\_BSP\_Dungeon\_generation .
