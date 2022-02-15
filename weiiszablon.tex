@@ -348,7 +348,7 @@ Poziom drugi to bardziej rozwinięta wersja poziomu pierwszego z większą liczb
 \FloatBarrier
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=14cm]{images/mygame/map2.png}
+	\includegraphics[width=12cm]{images/mygame/map2.png}
 	\caption{Przykładowy układ poziomu drugiego}
 	\label{mygame:map2}
 \end{figure}
@@ -386,7 +386,7 @@ Poziom piąty to duży obszar podzielony na pokoje bezpośrednio połączone ze 
 \FloatBarrier
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=12cm]{images/mygame/map5.png}
+	\includegraphics[width=14cm]{images/mygame/map5.png}
 	\caption{Przykładowy układ poziomu piątego}
 	\label{mygame:map5}
 \end{figure}
@@ -552,7 +552,7 @@ Gra posiada grafikę typu \emph{pixel art} w formacie 16x16 pikseli. W oknie gry
 \FloatBarrier
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=12cm]{images/mygame/spritesheet.png}
+	\includegraphics[width=16cm]{images/mygame/spritesheet.png}
 	\caption{Grafiki użyte w grze. Od lewej: ściana, skały, postać gracza, goblin, ork, rycerz, łotr, szlam, mały szlam, buty, zbroja, sztylet, miecz, duża mikstura zdrowia, mikstura zdrowia, magiczny zwój, schody w dół, schody w górę, podłoga}
 	\label{mygame:spritesheet}
 \end{figure}
@@ -760,7 +760,7 @@ Generator używany do tworzenia mapy poziomu pierwszego jest jednym z najprostsz
 \FloatBarrier
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=10cm]{images/generators/level1.png}
+	\includegraphics[width=14cm]{images/generators/level1.png}
 	\caption{Przykład wygenerowanych map dla poziomu pierwszego}
 	\label{generators:level1}
 \end{figure}
@@ -773,7 +773,7 @@ Generator użyty w poziomie drugim oparty jest o metodę Binary Space Partitioni
 \FloatBarrier
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=10cm]{images/generators/bsp_node.png}
+	\includegraphics[width=12cm]{images/generators/bsp_node.png}
 	\caption{Węzeł drzewa binarnego użyty w metodzie Binary Space Partitioning}
 	\label{generators:bsp_node}
 \end{figure}
@@ -859,7 +859,6 @@ W wyniku tego algorytmu otrzymać można mapy, których przykłady zaprezentowan
 \end{figure}
 \FloatBarrier
 
-\clearpage
 
 \subsubsection{Poziom piąty -- Binary Space Partitioning}
 Poziom piąty korzysta z tej samej metody Binary Space Partitioning, co poziom drugi, lecz pokoje w nim zajmują całe obszary przypisane do węzłów będących liśćmi drzewa. Pozwala to na wygenerowanie mapy podzielonej na pokoje bezpośrednio ze sobą połączone, bez użycia korytarzy. Na rysunku \ref{generators:bsp_diff} zaprezentowano porównanie mapy z poziomu drugiego z mapą z poziomu piątego.
