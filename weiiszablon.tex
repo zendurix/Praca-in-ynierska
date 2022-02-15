@@ -6,6 +6,14 @@
 % uzywane do wyrownywania obrazkow (FloatBarrier)
 \usepackage{placeins}
 
+% numeracja rysunkow -- wyzerowanie po rozdziale
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
+% rozmiar podpisow pod rysunkami
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+
 \author{Michał Majda}
 
 \studentID{EF-157100}
@@ -36,15 +44,15 @@
 % \clearpage
 
 \section*{Wstęp}
-Roguelike to gatunek gier komputerowych posiadający elementy gier fabularnych RPG (role-playing game) \cite{book_rpg}, bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach w głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna ważną cechą gier Roguelike jest permadeath -- śmierć gracza oznacza konieczność gry od początku. Klasyczne roguelike-i, z racji trudnej rozgrywki, nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunek biorąc z niego tylko wybrane elementy. Z powodu standardowej dla roguelike-ów słabej jakościowo grafiki oraz map tworzonych proceduralnie - to znaczy według algorytmów - zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują ze stanardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego ruchu. Czyni to nowych przedstawicieli gatunku roguelike bardziej przystępnymi, co przekłada się na wzrost popularności \cite{roguelike_popularity}.
+Roguelike to gatunek gier komputerowych posiadający elementy gier fabularnych RPG (role-playing game) \cite{book_rpg}, bazujący na dużej losowości rozgrywki \cite{bookroguelike}. Losowość w tych grach w głównej mierze opiera się na losowym rozmieszczeniu przeciwników i przedmiotów oraz losowo generowanych mapach. Inna ważną cechą gier Roguelike jest permadeath -- śmierć gracza oznacza konieczność gry od początku. Klasyczne gry typu roguelike, z racji trudnej rozgrywki, nie były popularne, ale w ostatnich latach coraz popularniejsze są gry inspirujące się tym gatunkiem biorąc z niego tylko wybrane elementy. Z powodu standardowej dla tych gier słabej jakościowo grafiki oraz map tworzonych proceduralnie - to znaczy według algorytmów - zamiast ręcznie, gry te są stosunkowo proste w produkcji i nawet współcześnie możliwe do zrealizowania przez jedną lub dwie osoby. Nowsze gry posiadające elementy roguelike najczęściej rezygnują ze standardowego dla starszych tytułów systemu turowego oraz ruchu po kwadratowej siatce na rzecz gry w czasie rzeczywistym i swobodnego poruszania się. Czyni to nowych przedstawicieli gatunku bardziej przystępnymi, co przekłada się na wzrost popularności \cite{roguelike_popularity}.
 
-Gatunek ten zapoczątkowany został przez grę Rogue w 1980 roku \cite{rogue_game}, od której wzięła się też nazwa gatunku roguelike - Rogue podobne. Rogue gracz eksploruje podziemia walcząc z przeciwnikami oraz zdobywając coraz lepszy ekwipunek. Celem ukończenia gry jest zdobycie amuletu Yendoru znajdującego się w najniższym poziomie. Grafika oparka jest o znaki tekstowe w kodowaniu ASCII \cite{book_ascii}, rozgrywka dzieje się w systemie turowym na kwadratowej siatce.
+Gatunek ten zapoczątkowany został przez grę Rogue w 1980 roku \cite{rogue_game}, od której wzięła się też nazwa gatunku roguelike - Rogue podobne. Rogue gracz eksploruje podziemia walcząc z przeciwnikami oraz zdobywając coraz lepszy ekwipunek. Celem ukończenia gry jest zdobycie amuletu Yendoru znajdującego się w najniższym poziomie. Grafika opatka jest o znaki tekstowe w kodowaniu ASCII \cite{book_ascii}, rozgrywka dzieje się w systemie turowym na kwadratowej siatce.
 
-Mimo iż gatunek roguelike rozwinął się znacznie to wciąż powstają gry wierne klasycznym założeniom gatunku. Przykładem tego jest Caves of Qud z 2015 roku \cite{game_coq}. Gra ta posiada wszystkie cechy klasycznego roguelike-a - turowa rozgrywka, permadeath oraz ruch po kwadratowej siatce, jednak klasyczną grafikę tekstową zastąpiono prostą grafiką typu pixel art \cite{source_pixelart}.
+Mimo iż gatunek roguelike rozwinął się znacznie to wciąż powstają gry wierne klasycznym założeniom gatunku. Przykładem tego jest Caves of Qud z 2015 roku \cite{game_coq}. Gra ta posiada wszystkie cechy klasycznej rozgrywki, jednak standardową grafikę tekstową zastąpiono prostą grafiką typu pixel art \cite{source_pixelart}.
 
-Jednym z najbardziej popularnych przykładów nowoczesnych roguelike-ów jest The Binding of Isaac z roku 2011 \cite{game_tboi}. Z gatunku roguelike gra ta zaczerpnęła losowe generowanie map, przedmiotów i przeciwników oraz permadeath. W The Binding of Isaac rozgrywka dzieje się w czasie rzeczywistym, a ruch gracza nie jest ograniczony do siatki. Dzięki temu zabiegowi gra jest bardziej zręcznościowa i co za tym idzie -  łatwiejsza.\\
+Jednym z najbardziej popularnych przykładów nowoczesnych gier typu roguelike jest The Binding of Isaac z roku 2011 \cite{game_tboi}. Z gatunku roguelike gra ta zaczerpnęła losowe generowanie map, przedmiotów i przeciwników oraz permadeath. W The Binding of Isaac rozgrywka dzieje się w czasie rzeczywistym, a ruch gracza nie jest ograniczony do siatki. Dzięki temu zabiegowi gra jest bardziej zręcznościowa i co za tym idzie -  łatwiejsza.\\
 
-Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnie generowanymi mapami, oraz omówienie użytych metod generacji map. \\
+Głównym celem pracy jest stworzenie gry z gatunku roguelike z proceduralnie generowanymi mapami, oraz omówienie użytych metod generacji map. Dodatkowym celem pracy jest omówienie najbardziej popularnych gier tego gatunku dostępnych w chwili obecnej na rynku. \\
 
 Struktura pracy jest następująca: w rozdziale pierwszym dokonano szczegółowej charakterystyki porównawczej innych gier z gatunku roguelike: Rogue, Caves of Qud, The Binding of Isaac. Rozdział drugi opisuje grę roguelike stworzoną na potrzeby niniejszej pracy. W rodziale trzecim zaprezentowano proces tworzenia tej gry oraz omówienie metod proceduralnego generowania map.
 
@@ -53,16 +61,16 @@ Struktura pracy jest następująca: w rozdziale pierwszym dokonano szczegółowe
 
 \section{Charakterystyka porównawcza gier roguelike}
 
-W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówione gry to 1- Rogue, 2- Caves of Qud, 3- The Binding of Isaac. Gatunek roguelike od swoich początków nie jest mocno popularny z powodu trudnej rozgrywki, skomplikowanego sterowania oraz prymitywnej oprawy graficznej. Powstały jednak popularne gry, które zaczerpują z gatunku tylko niektóre elementy, co w niektórych przypadka oznacza płynną, prostszą rozgrywkę z elementami roguelike.
+W niniejszym rodziale szczegółowo omówiono przykłowe gry z gatunku roguelike. Omówiono Rogue, Caves of Qud oraz The Binding of Isaac. Gatunek roguelike od swoich początków nie jest mocno popularny z powodu trudnej rozgrywki, skomplikowanego sterowania oraz prymitywnej oprawy graficznej. Powstały jednak popularne gry, które zaczerpują z gatunku tylko wybrane elementy, co w niektórych przypadkach oznacza płynną, prostszą rozgrywkę z elementami roguelike.
 
 \subsection{Rogue}
 
-Rogue: Exploring the Dungeons of Doom to zaprogramowana w języku C gra pochodząca z 1980 roku, której twórcami są Michael Toy i Glenn Wichman. Gra ta zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi osadzonych w fantastycznym, średniowiecznym świecie, w celu odnaleznia amuletu Yendoru. Rogue nie posiada wyboru ani konfiguracji postacji, dlatego każdy gracz rozpoczyna grę tą samą postacią. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwipunek. Podczas eksploracji głębszych poziomów podziemi gracz napotyka coraz trudniejszych przeciwników, lecz także przedmioty, które znajduje są coraz lepsze. Gra Rogue oparta jest o system turowyOznacza to, że gracz i jego przeciwnicy naprzemiennie wykonują swoje ruchy. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki. Każda mapa przedstawiona jest za pomocą siatki kwadratów, dlatego też ruch gracza ograniczony jest do 8 kierunków: góra, dół, lewo, prawo i ukosy. 
+Rogue: Exploring the Dungeons of Doom to zaprogramowana w języku C gra pochodząca z 1980 roku, której twórcami są Michael Toy i Glenn Wichman. Gra ta zapoczątkowała gatunek Roguelike. Gracz wciela się w postać podróżującą w głąb podziemi osadzonych w fantastycznym, średniowiecznym świecie, w celu odnalezienia amuletu Yendoru. Rogue nie posiada wyboru i konfiguracji postaci, dlatego każdy gracz rozpoczyna grę tą samą postacią. W trakcie rozgrywki napotkać można wielu przeciwników, a w walce z nimi pomagają znajdowane na poziomach przedmioty i ekwipunek. Podczas eksploracji głębszych poziomów podziemi gracz napotyka coraz trudniejszych przeciwników, lecz także przedmioty, które znajduje są coraz lepsze. Gra Rogue oparta jest o system turowyOznacza to, że gracz i jego przeciwnicy naprzemiennie wykonują swoje ruchy. W wyniku tego gra pozwala na dowolnie długie przemyślenie każdego ruchu i taktyczne podejście do walki. Każda mapa przedstawiona jest za pomocą siatki kwadratów, dlatego też ruch gracza ograniczony jest do 8 kierunków: góra, dół, lewo, prawo i ukosy. 
 
 Z racji ograniczeń sprzętowych w czasach wydania gry Rogue za reprezentację graficzną odpowiadają litery i znaki ASCII w terminalu. Na rysunku \ref{Rogue:scr1} przedstawiono fragment rozgrywki w  Rogue. Pomarańczowymi liniami oznaczone są ściany pokojów, zielonymi kropkami podłogi, na szaro oznaczono korytarze. Żólta twarz reprezentuje postać, a gracza przeciwnicy są oznaczani literami-  hobogoblin oznaczony białą literą 'H' na rysunku.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/rogue/scr1.png}
 	\caption{Widok główny gry Rogue}
@@ -73,7 +81,7 @@ Z racji ograniczeń sprzętowych w czasach wydania gry Rogue za reprezentację g
 Do sterowania w Rogue używana jest tylko klawiatura, do poruszania przeznaczone są klawisze klawiatury numerycznej a do wykonywania akcji -  litery, na przykład klawisz 'I' służy do wyswietlenia ekwipunku. Aby zaatakować gracz musi poruszyć się w stronę przeciwnika będąc tuż przy nim. Wyświetlanie ekwipunku w grze Rogue pokazano na rysunku \ref{Rogue:scr2}. Manipulowanie przedmiotami w plecaku nie odbywa się w tym oknie, ale w głownym widoku gry za pomocą odpowienich klawiszy odpowiadającym danemu przedmiotowi w ekwipunku. Na przykład aby wyrzucić przedmiot 'a +1, +1 mace` znajdujący się w ekwipunku na rysunku \ref{Rogue:scr2} trzeba wcisnąć klaiwsz 'd' odpowiadający za wyrzucanie przedmiotów i literę 'c' przypisaną obecnie do tego przedmiotu, a w celu zjedzenia 'some food' klawisz 'e' odpowiadający za akcję jedzenia i literę 'a'. 
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/rogue/scr2.png}
 	\caption{Ekran ekwipunku w Rogue}
@@ -84,7 +92,7 @@ Do sterowania w Rogue używana jest tylko klawiatura, do poruszania przeznaczone
 Rogue zawiera proste proceduralnie generowane mapy, przykładowe dwie mapy pokazano na rysunku: \ref{Rogue:scr3}. Każda z map zawiera pokoje w układzie siatki 3x3, co szczególnie widać na mapie po prawej na rysunku \ref{Rogue:scr3} Maksymalna liczba pokojów to dziewięć, ale może być ich mniej. Pokoje są połączone ze sobą korytarzami, a niektóre przejścia mogą być ukryte przed graczem, co wymusza częste korzystanie z komendy przeszukiwania dostępnej pod klawiszem 'S'. Pokoje i korytarze mogą zawierać ukryte pułapki, które można wykryć używając komendy szukania. Jedyną zmianą na głebszych poziomach są małe labirynty umiejszczone czasami w miejsce niektórych pokojów.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/rogue/scr3.png}
 	\caption{Przykładowe mapy w grze Rogue}
@@ -103,7 +111,7 @@ Caves of Qud to współczesny przykład rozwoju klasycznej formuły roguelike-ó
 Jednym z głównych wyróżników Caves of Qud na tle innych gier tego typu jest bardzo mocno rozwinięty system proceduralnie generowanych map. Gra posiada otwarty świat o statycznie umiejscowionych obszarach, takich jak góry, dżungle i pustynie, a także miastach. Na rysunku \ref{CoQ:scr1} przedstawiono przykładowe mapy wygenerowane w tej grze. Pomimo statycznego ustawienia konkretnych obszarów w grze, sam wygląd danych obszarów i miejsc jest proceduralnie generowany.Na wielu mapach mogą także zostać dodane obiekty takie jak ruiny, obozowiska itp.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/caves_of_qud/scr1.png}
 	\caption{Przykładowe mapy w grze Caves of Qud. Po lewej wioska, po prawej dżungla z ruinami}
@@ -114,7 +122,7 @@ Jednym z głównych wyróżników Caves of Qud na tle innych gier tego typu jest
 Główną i najbardziej interesującą metodą używaną w tej grze jest generowanie map oparte o Wave Function Collapse (Załamanie funkcji falowej) \cite{coq_wfc}. Metoda ta pozwala na generowanie wielu różnych typów map za pomocą jednego algorytmu. Działanie tej metody wykorzystuje wzorzec, na podstawie którego tworzy większy wzór lokalnie podobny do orginalnego, co przedstawiono na rysunku \ref{wfc} \cite{wfc_git}.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/wfc.png}
 	\caption{Przykład działania algorytmu opartego o wave function collapse}
@@ -126,7 +134,7 @@ Główną i najbardziej interesującą metodą używaną w tej grze jest generow
 Podobnie jak w grze Rogue, tutaj również do poruszania się używana jest klawiatura numeryczna i klawisze liter dostępu do ekwipunku, listy zadań i tym podobne. Caves of Qud umożliwia też granie wyłącznie za pomocą myszki. Gra oferuje bardziej przejrzystę grafikę typu pixel art -  w formacie 16x24 piksele na jeden kwadrat na mapie, co przedstawiono na rysunku \ref{CoQ:scr3}. Mylącym może być, iż gra jest reprezentowana graficznie przez siatkę pionowych prostokątów, lecz w rzeczywistości traktuje je jako kwadraty, a ruch w każdym z ośmiu dostępnych kierunków zajmuje tyle samo czasu.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=65mm]{images/caves_of_qud/scr3.png}
 	\caption{Zrzut ekranu z gry Caves of Qud}
@@ -137,7 +145,7 @@ Podobnie jak w grze Rogue, tutaj również do poruszania się używana jest klaw
 Caves of Qud znacznie rozwinęło też interfejs użytkownika, co znacząco wpływa na ułatwienie rozgrywki. Interfejs jest tu przejrzysty i prosty, dzięki czemu zmiana ekwipunku oraz używanie przedmiotów stało się dużo łatwiejsze. Na rysunku \ref{CoQ:scr2} przedstawiono ekran ekwipunku.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/caves_of_qud/scr2.png}
 	\caption{Ekran ekwipunku w Caves of Qud}
@@ -164,7 +172,7 @@ Gra The Binding of Isaac została stworzona w roku 2011 przez Edmunda McMillena 
 The Binding of Isaac odeszło od podziału mapy na kwadratową siątke, ale wciąż korzysta z względnie prostej grafiki typu pixel art, co przedstawiono na rysunku: \ref{tboi:scr1}.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/tboi/scr1.png}
 	\caption{Przykład rozgrywki w The Binding of Isaac: Rebirth}
@@ -176,7 +184,7 @@ Gracz wciela się początkowo w postać Isaaca, ale w trakcie rozgrywki może od
 
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/tboi/scr2.png}
 	\caption{Przykład kombinacji przedmiotów w The Binding of Isaac: Rebirth}
@@ -188,7 +196,7 @@ W grze The Binding of Isaac za sterowanie postacią odpowiadają klawisze 'W', '
  W porównaniu do innych gier roguelike losowo generowane mapy w The Binding of Isaac są znacznie prostsze. Gra składa się z wielu poziomów podzielonych na pokoje, każdy z poziomów zakończony jest walką z silnym przeciwnikiem -- bossem. Pokoje są wybierane losowo z puli pokojów przygotowanych przez twórców, a ich rozkład i połączenia są losowo generowane. Na rysunku \ref{tboi:scr3} przedstawiono przykładowy układ poziomów. Z każdym kolejnym poziomem ilość pokojów jest coraz większa, ale jakość napotykanych przedmiotów nie wzrasta. Napotykane przedmioty są kompletnie losowe, dlatego czasem już nawet po pierwszym poziomie postać gracza może posiadać kilka najsilniejszych przedmiotów. 
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/tboi/scr3.png}
 	\caption{Przykładowe układy poziomów w The Binding of Isaac: Rebirth}
@@ -238,7 +246,7 @@ Gra składa się z sześciu różnorodnych, proceduralnie generowanych poziomów
 Po uruchomieniu gry pierwsze, co zobaczy gracz to główne menu przedstawione na rysunku \ref{mygame:scr1}. Menu składa się z żółtego tytułu gry, oraz czterech opcji. Poruszać się po menu można za pomocą klawiszy strzałek, aktualnie wybrana opcja jest zaznaczona na zielono, a wybór opcji przeprowadzany jest klawiszem enter.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/mygame/scr1.png}
 	\caption{Menu główne gry}
@@ -259,7 +267,7 @@ Menu składa się z następujących opcji:
  Główną metodą poruszania się postaci jest klawiatura numeryczna, co używane jest od dawna w gatunku roguelike. Jest to także najwygodniejsza kombinacja klawiszy przy możliwości ruchu w ośmiu kierunkach -- dół, góra, prawo, lewo oraz skosy, schemat poruszania się przy użyciu klawiatury numerycznej przedstawiono na rysunku \ref{numpad_controls}. Nie wszystkie klawiatury, a szczególnie te w laptopach, posiadają klawiaturę numeryczną, dlatego gra posiada też alternatywne sterowanie oparte o klawisze strzałek i klawisze liter. Klawisz '5' w przypadku klawiatury numerycznej używany jest do pomijania tury, co jest istotną możliwością w grze turowej. Jednokrotne naciśnięcie klawisza odpowiadającego za ruch porusza postać gracza o jedno pole w danym kierunku, jeżeli nie jest ono zajmowane przez ścianę. Jeśli pole na które porusza się gracz zajmowane jest przez przeciwnika, to zamiast ruchu postać gracza wykona atak przeciwko temu przeciwnikowi, jest to standardowa metoda ataku w tego typu grach.
  
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=4cm]{images/custom/numpad_controls.png}
 	\caption{Schemat sterowania na klawiaturze numerycznej}
@@ -270,7 +278,7 @@ Menu składa się z następujących opcji:
 Objaśnienia sterowania i lista dostępnych akcji w grze z menu głównego za pomocą opcji 'Controls' na rysunku \ref{mygame:scr2} przedstawiono widok dostępny po wybraniu tej opcji.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/mygame/scr2.png}
 	\caption{Objaśnienia sterowania w grze}
@@ -307,7 +315,7 @@ Poniżej wyjaśnienie wszystkich komend dostępnych w grze w kolejności z rysun
 Po rozpoczęciu nowej gry gracz zobaczy okno z wycinkiem mapy wycentrowanym na postać gracza, a także okno dziennika zdarzeń i pasek punktów życia, co pokazano na rysunku \ref{mygame:game_window}. Widok mapy jest powiększonym wycinkiem poziomu, przesuwającym się razem z graczem. Na mapie poza ścianami zaznazone są też pola podłogi za pomocą białej kropki. Jest to przydatne do przeliczania odległości w grach opierającch się o ruch na siatce kwadratów. W dzienniku zdarzeń zapisywane są wydarzenia z gry takie jak podnoszenie przedmiotu i ataki gracza lub przeciwników. Pasek życia posiada liczbową prezentację punktów życia w postaci [aktualne punkty zdrowia / maksymalne punkty zdrowia], oraz graficzną reprezentację -- czerwony pasek zmniejszający się wraz ze spadkiem zdrowia. Gracz posiada pole widzenia o określonym zasięgu, któro działa w sposób realistyczny to znaczy będąc blisko wejścia do pokoju jest on w stanie zobaczyć tylko jego skrawek, a nie cały pokój, co widać na rysunku \ref{mygame:game_window}. Poza aktualnie widzianymi polami postać gracza pamięta też obszary, które wcześniej zobaczył, są one zaznaczone na szaro. Na obszarach, które gracz pamięta, ale nie widzi ich obecnie zaobserwować można tylko układ podłóg i ścian.Przeciwników i przedmioty zauważyć można tylko w bezpośrednim polu widzenia.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/mygame/game_window.png}
 	\caption{Widok główny gry. 1 - aktualny wycinek mapy, 2 - dziennik zdarzeń, 3 - aktualny poziom, 4 - pasek zdrowia. Żółta postać to gracz, a zielone postacie to gobliny -- jeden z typów przeciwników }
@@ -323,7 +331,7 @@ Gra składa się z sześciu poziomów oferujących róznych przeciwników i prze
 Poziom pierwszy to kilka prostych pokojów połączonych ze sobą korytarzami, przykładowy układ tej mapy przedstawiono na rysunku \ref{mygame:map1}. Na poziomie tym napotkać można najprostszych przeciwników: 'blip' oraz 'goblin'. Istnieje też mała szansa, że w pokoju z golbinami pojawi się też trudniejszy przeciwnik -- 'orc' -- ork. Na poziomie tym znaleźć można podstawowy pancerz i miecz, a także mikstury uzdrawiające i zwoje uśpienia, które są szczególnie przydatne w walkach z trudniejszymi przeciwnikami w dalszych poziomach.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/map1.png}
 	\caption{Przykładowy układ poziomu pierwszego}
@@ -337,7 +345,7 @@ Poziom drugi to bardziej rozwinięta wersja poziomu pierwszego z większą liczb
 
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/mygame/map2.png}
 	\caption{Przykładowy układ poziomu drugiego}
@@ -350,7 +358,7 @@ Poziom drugi to bardziej rozwinięta wersja poziomu pierwszego z większą liczb
 Poziom trzeci to duża jaskinia wypełniona masą goblinów i orków. Przykładowy poziom trzeci przedstawiono na rysunku \ref{mygame:map3}. Mimo, że nie spotyka tu się trudniejszych przeciwników niż orkowie, to trudnością tego etapu jest duża ich liczba, oraz otwarty teren. Taki układ mapy, w przeciwieństwie do ciasnych korytarzy poprzednich poziomów, może łatwo doprowadzić do otoczenia gracza przez wielu przeciwników.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/map3.png}
 	\caption{Przykładowy układ poziomu trzeciego}
@@ -363,7 +371,7 @@ Poziom trzeci to duża jaskinia wypełniona masą goblinów i orków. Przykłado
 Poziom czwarty to kolejna jaskinia, tym razem z dużo większym obszarem w centrum, oraz okazjonalnymi ciasnymi odnogami. Przykładowy poziom czwarty przedstawiono na rysunku \ref{mygame:map4}. Na poziomie tym można spotkać duże ilości prostych 'blip'ów z pierwszego poziomu, a także sporo ich większych odmian -- 'blop'-ów. 'Blop' poza byciem silniejszą odmianą blipa posiada też specjalną zdolność -- po śmierci rozpadnie się na kilka blipów. Na tym poziomie można też znaleźć mocniejszą zbroję i miecz, a także duże mikstury uzdrowienia i zwoje obszarowego uśpienia.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/map4.png}
 	\caption{Przykładowy układ poziomu czwartego}
@@ -375,7 +383,7 @@ Poziom czwarty to kolejna jaskinia, tym razem z dużo większym obszarem w centr
 Poziom piąty to duży obszar podzielony na pokoje bezpośrednio połączone ze sobą, bez korytarzy. Przykładowy poziom piąty przedstawiono na rysunku \ref{mygame:map5}. Na tym poziomie spotkać można najmocniejszych przeciwników: rycerzy ('knight') oraz łotrzyków ('rogue'). W trakcie eksploracji poziomu piątego odnaleźć można namocniejsze w grze zbroję oraz miecz, co będzie dla gracza szczególnie przydatne na poziomie szóstym.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/map5.png}
 	\caption{Przykładowy układ poziomu piątego}
@@ -392,7 +400,7 @@ Poziom szósty to ostatni poziom, cały będący otwartą przestrzenią. Na tym 
 W grze gracz przez eksplorację znaleźć może wiele różnorodnych przedmiotów, których używanie jest konieczne w celu ukończenia gry. Przedmioty dzielą się na zbroje, bronie, mikstury oraz magiczne zwoje. Aby podnieść przedmiot gracz musi przejść na zajmowane przez przedmiot pole a następnie wcisnąć klawisz 'G'. Na rysunku \ref{mygame:item_room} przedstawiono pokój wypełniony przedmiotami.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=9cm]{images/mygame/item_room.png}
 	\caption{Pokój z przedmiotami. 1 - postać gracza, 2 - mikstura zdrowia, 3 - broń, 4 - zbroja }
@@ -405,7 +413,7 @@ W grze gracz przez eksplorację znaleźć może wiele różnorodnych przedmiotó
 Gracz w każdej chwili może sprawdzić swój ekwipunek klawiszem 'I', ekran ten zaprezentowano na rysunku \ref{mygame:inv}. Wyboru przedmiotu dokonuje się za pomocą strzałek i klawisza Enter -- litera po lewej stronie przy aktualnie wybranym przedmiocie jest zaznaczona na zielono. Innym sposobem wybrania przedmiotu jest wciśnięcie przypisanej mu po lewej stronie litery w nawiasach. Dopisek '<EQUIPPED>' po prawej stronie danego przedmiotu oznacza, że jest on aktualnie założony przez postać gracza. Zielone liczby oznaczają ilość danego przedmiotu, na rysunku \ref{mygame:inv}  zaobserwować można, że gracz posiada cztery mikstury uzdrawiająca 'Health potion'. Klawiszem Esc można wyjśc z menu ekwipunku i powrócić do gry.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=8cm]{images/mygame/inv.png}
 	\caption{Okno ekwipunku}
@@ -416,7 +424,7 @@ Gracz w każdej chwili może sprawdzić swój ekwipunek klawiszem 'I', ekran ten
 Po wybraniu przedmiotu wyświetla się menu wyboru akcji dostepnych dla każdego przedmiotu, przykładowe dostępne akcje dla 'Health potion' przedstawiono na rysunku \ref{mygame:item_menu}. Każdy przedmiot można wyrzucić za pomocą akcji 'drop', spowoduje to wyrzucenie przedmiotu na pole zajmowane przez gracza. W przypadku niezałożonych zbroi i broni dostępna jest opcja 'Equip' powodująca wyekwipowanie danego przedmiotu. Konsekwentnie, założone przedmioty posiadają akcję 'UnEquip', która pozwala na ściągnięcie danego przedmiotu. Mikstury i zwoje posiadają akcję 'Use' pozwalająca na użycie danego przedmiotu. Niektóre przedmioty są używane od razu na postaci gracza, a niektóre pozwalają na wybranie celu.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=75mm]{images/mygame/item_menu.png}
 	\caption{Okno akcji przedmiotu z ekwipunku}
@@ -438,7 +446,7 @@ Postać gracza posiada określoną ilość punktów zdrowia 'HP', które zmniejs
 Kolejnym typem przedmiotów są magiczne zwoje. Zwoje zapewniają wiele różnorodnych efektów, a ich użycie wymaga wyboru celu, co zaprezentowano na rysunku \ref{mygame:targeting}. Cel ataku zaznaczony jest na pomarańczowo, niebieskie pola oznaczają zasięg danego zwoju. Cel można wybrać przesuwając znacznik klawiszami używanymi do przesuwania postaci lub kliknięciem myszki na dane pole. Na rysunku \ref{mygame:scroll} pokazano wygląd zwojów w grze.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=8cm]{images/mygame/targeting.png}
 	\caption{Wybór celu magicznego zwoju}
@@ -447,7 +455,7 @@ Kolejnym typem przedmiotów są magiczne zwoje. Zwoje zapewniają wiele różnor
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=3cm]{images/mygame/scroll.png}
 	\caption{Magiczny zwój w grze}
@@ -469,7 +477,7 @@ Dostępne w grze zwoje to:
 Gry roguelike opierają się w głównej mierze na proceduralnie generowanych poziomach, co oznacza generowanie map na podstawie algorytmów zawierających elementy losowości. Znaczy to na przykład, że użyty w niniejszej grze algorytm do generowania jaskiń zawsze wygeneruje poziom przypominający jaskinię, lecz za każdym razem inaczej wyglądający. Takie podejście do tworzenie poziomów pozwala znacznie zaoszczędzić czas, który w standardowej metodzie byłby spędzony na ręcznie tworzenie poziomów. Mapy proceduralnie generowane są jednak podatne na błędy -- na przykład generowane są miejsca, do których nie da się dojść. W celu szybszego odnajdywania i naprawiania takich i podobnych błędów, a także prezentacji możliwości zaimplementowanych algorytmów stworzono menu do testowania generatorów map, zaprezentowane na rysunku \ref{mygame:gen_test}. Opcja ta dostępna jest w głównym menu gry po wybraniu 'Test Map Generators'.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/mygame/gen_test.png}
 	\caption{Menu testera proceduralnie generowanych map}
@@ -491,7 +499,7 @@ Klawiszami strzałek oraz klawiszem Enter wybiera się opcję, klawiszem Esc mo�
 Po wybrania generatora map otwiera się okno zaprezentowane na rysunku \ref{mygame:window_tester}. W głównej części zaprezentowany jest aktualny stan mapy w przypadku pokazu z krokami lub finalny efekt generacji planszy w przypadku wyłączenia kroków. W dolnej części okna znajdują się informacje o numerze aktualnego kroku oraz jego opisie. Klawiszem Esc powrócić można do menu testera, klawiszem spacji generuje się nową mapę lub przechodzi do kolejnego kroku.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/mygame/window_tester.png}
 	\caption{Okno testera wybranego genratora map}
@@ -502,7 +510,7 @@ Po wybrania generatora map otwiera się okno zaprezentowane na rysunku \ref{myga
 Na rysunku \ref{mygame:tester_steps} przedstawiono część kroków generacji mapy do poziomu trzeciego, na rysunku \ref{mygame:tester_nosteps} pokazano przykładowe wygenerowane mapy do poziomu drugiego.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/mygame/tester_steps.png}
 	\caption{Przykład testowania z krokami generacji mapy do poziomu trzeciego}
@@ -511,7 +519,7 @@ Na rysunku \ref{mygame:tester_steps} przedstawiono część kroków generacji ma
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/mygame/tester_nosteps.png}
 	\caption{Przykład testowania bez kroków generacji mapy do poziomu drugiego}
@@ -541,7 +549,7 @@ W programie użyto wielu tworzonych przez społeczność bibliotek open source -
 Gra posiada grafikę typu pixel art w formacie 16x16 pikseli, w oknie gry użyto dwukrotnie powięszonych obrazków w formacie 32x32 w celu polepszenia widoczności. Aby móc zmieścić całą mapę w jednym oknie w testerze proceduralnych generatorów map, użyty został oryginalny format 16x16. Do tworzenia grafiki użyto programu Aseprite \cite{aseprite} będącego wygodnym narzędziem graficznym wyspecjalizowanym w tworzeniu grafiki pixel art. Wszystkie obrazki użyte w grze znajdują się w folderze 'resources' w dwóch plikach, odpowiednio 'sprite\_sheet\_16x16.png' oraz 'sprite\_sheet\_32x32.png'. Taki format przechowywania obrazków zapewnia porządek w folderach gry. Dostęp do konkretnego obrazka odbywa się przez określenie wymiarów oraz podaniu indeksu. Aby uzyskać obrazek przedstawiający gracza z pliku 'sprite\_sheet\_16x16.png' przedstawionego na rysunku \ref{mygame:spritesheet} należy określić rozmiary -- 16x16 pikseli oraz podać indeks 2 -- obrazki są indeksowane od lewej do prawej, pierwszy element ma indeks zero.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/mygame/spritesheet.png}
 	\caption{Grafiki użyte w grze. Od lewej: ściana, skały, postać gracza, goblin, ork, rycerz, łotr, blop, blip, buty, zbroja, sztylet, miecz, duża mikstura zdrowia, mikstura zdrowia, magiczny zwój, schody w dół, schody w górę, podłoga}
@@ -556,7 +564,7 @@ W niniejszym podrozdziale przedstawiono szczegóły implementacyjne, wraz z prez
 \subsubsection{Struktura projektu}
 Gra roguelike posiada wiele modułów spełniających odmienne zadania. Kod projektu podzielony został na wiele modułów i podmodułów w celu lepszej organizacji. Główne folder programu zawiera foldery: 'resources' -- zawierający grafiki użyte w grze, 'src' -- zawierający kod źródłowy, na rysunku \ref{code:main_structure} przedstawiono schemat głównych modułów kodu projektu. W folderze głównym znajduje się też plik Cargo.toml określający między innymi użyte biblioteki.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/code/main_structure.png}
 	\caption{Schemat głównych modułów struktury projektu}
@@ -613,7 +621,7 @@ Komponenty to małe części składowe, których stan aktualizowany jest przez k
 \end{itemize}
 	
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=8cm]{images/code/comps.png}
 	\caption{Przykładowe struktury komponentów}
@@ -635,7 +643,7 @@ Na rysunku \ref{code:spawn_player} pokazano przykładowe tworzenie encji za pomo
 \end{itemize}
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/code/spawn_player.png}
 	\caption{Funkcja tworząca encję gracza i przydzielająca mu odpowiednie komponenty}
@@ -647,7 +655,7 @@ Na rysunku \ref{code:spawn_player} pokazano przykładowe tworzenie encji za pomo
 Systemy odpowiedzalne są za logikę gry, ich celem jest aktualizacja konkretnych komponentów. Na rysunku \ref{code:system_damage} przedstawiono system odpowiedzialny za przyjmowanie obrażeń. Systemy utworzone są jako puste struktury implementujące trait 'System' z biblioteki specs. W implementacji traita najpierw zdefiniowano typ 'SystemData' - określa to do jakich danych oraz w jaki sposób -- 'WriteStorage' oznacza możliwość edycji, 'ReadStorage' oznacza możliwość wyłącznie odczytu, ma dostęp dany sytem. Dla tego systemu przyznano dostęp do komponentów 'Hp' i ' SufferDamage'. Następnie zdefiniowano funkcję 'run' wymaganą przez ten trait. W pierwszej linijce funkcji utworzono zmienne hps - zbiór wszystkich komponentów 'Hp' oraz damages - zbiór wszystkich komponentów 'SufferDamage'. Uzyta w pętli for funkcja 'join' wyodrębnia komponenty znajdujące się na wszystkich zbiorach, na których została ona wywołana oraz gdzie komponenty te przypisane są do wspólnego właściciela -- Encji. Oznacza to, że każda iteracja pętli posiada dostęp do komponentów ze zbiorów przekazanych do tej funkcji będących komponentami jednej Encji. Dla każdej Encji, która posiada te dwa komponenty odjęto sumę przyjętych obrażeń od aktualnego poziomu życia. Z racji, że komponenty 'SufferDamage' są komponentami-wydarzeniami, to można je usunąć po skończeniu pętli.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/code/system_damage.png}
 	\caption{System 'DamageSystem' odpowiedzalny za zadawanie obrażeń obiektom}
@@ -688,7 +696,7 @@ Struktura 'SpawnEntry' przedstawiona na rysunku \ref{code:spawn_entry} składa s
 
  
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/code/spawn_entry.png}
 	\caption{Struktura 'SpawnEntry'}
@@ -699,7 +707,7 @@ Struktura 'SpawnEntry' przedstawiona na rysunku \ref{code:spawn_entry} składa s
 Każdy generator map posiada metodę zwracającą dla wygenerowanej przez niego mapy, wydzielone obszary nazywane 'spawn areas'. Spawn areas to obszary, na których może pojawić się grupa obiektów zdefiniowana w strukturze 'SpawnPack' zaprezentowanej na rysunku \ref{code:spawn_pack}. Struktura ta określa minimalny obszar, na którym może pojawić się ta grupa, szansę wystąpienia tej grupy, oraz maksymalną ilość grup tego typu na danym poziomie.
  
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/code/spawn_pack.png}
 	\caption{Struktura 'SpawnPack'}
@@ -710,7 +718,7 @@ Każdy generator map posiada metodę zwracającą dla wygenerowanej przez niego 
 Na rysunku \ref{code:goblins_pack} przedstawiono funkcję tworzącą 'SpawnPack' będący grupą goblinów. W obszarze 'spawn area' dla którego wylosowany zostanie ten spawn pack pojawi się od dwóch do sześciu goblinów, od zera do jednej mikstury życia, oraz zwój uśpienia z dwudziestoprocentową szansą na pojawienie się.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/code/goblins_pack.png}
 	\caption{'SpawnPack' grupa goblinów}
@@ -721,7 +729,7 @@ Na rysunku \ref{code:goblins_pack} przedstawiono funkcję tworzącą 'SpawnPack'
 Ostatnim elementem rozmieszczania przedmiotów i przeciwników jest struktura 'SpawnTable' przedstawiona na rysunku \ref{code:spawn_table} , która określa możliwe do pojawienia się na danym poziomie grupy obiektów -- 'SpawnPack'. Na rysunku \ref{code:basic_spawn} przedstawiono tablicę możliwych grup na poziomie pierwszym.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=6cm]{images/code/spawn_table.png}
 	\caption{Struktura 'SpawnTable'}
@@ -730,7 +738,7 @@ Ostatnim elementem rozmieszczania przedmiotów i przeciwników jest struktura 'S
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/code/basic_spawn.png}
 	\caption{Przykład 'SpawnTable' dla poziomu pierwszego}
@@ -748,7 +756,7 @@ Proceduralna generacja oznacza tworzenie poziomów na podstawie algorytmów z u�
 Generator używany do tworzenia mapy poziomu pierwszego jest jednym z najprostszych i polega na losowym rozmieszczenie pokojów o losowych wymiarach. Pokoje nie mogą na siebie nachodzić, zakresy ich ilości i wymiarów można określić w konfiguracji tego generatora. Po umieszczeniu na mapie poziomów są one łączone ze sobą korytarzami, w kolejności w jakiej się pojawiły.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/generators/level1.png}
 	\caption{Przykład wygenerowanych map dla poziomu pierwszego}
@@ -761,7 +769,7 @@ Generator używany do tworzenia mapy poziomu pierwszego jest jednym z najprostsz
 Generator użyty w poziomie drugim oparty jest o metodę Binary Space Partitioning \cite{bsp_source} -- binarne dzielenie przestrzeni, określane też za pomocą skrótu BSP. Metoda ta opiera się o drzewo binarne \cite{book_algo}, które zawiera kolejne podobszary mapy. Na rysunku \ref{generators:bsp_node} przedstawiono strukturę reprezentującą węzeł drzewa użytego w tej metodzie. Zawiera ona indeks węzła, poziom drzewa, na którym znajduje się ten węzeł, indeksy rodzica, siostry -- węzła o wspólnym bezpośrednim rodzicu, opcjonalne indeksy dzieci, indeksy kolejnych rodziców aż do korzenia, obszar zajmowany przez ten węzeł, oraz opcjonalnie obszar zajmowany przez pokój umieszczony w tym węźle.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=10cm]{images/generators/bsp_node.png}
 	\caption{Węzeł drzewa binarnego użyty w metodzie Binary Space Partitioning}
@@ -772,7 +780,7 @@ Generator użyty w poziomie drugim oparty jest o metodę Binary Space Partitioni
 Korzeń drzewa zawsze zawiera obszar całej mapy, następnie w losowym miejscu, zbliżonym do środka obecnego obszaru następuje podział na dwa obszary. Ten podział następuje losowo w sposób pionowy lub poziomy. Te dwa obszary są dziećmi obszaru, z którego się wywiodły. Taki podział następuje do momentu, gdy maksymalny, określony w generatorze poziom drzewa zostanie osiągnięty. Na rysunku \ref{generators:bsp_tree} przedstawiono przykładowy podział mapy na obszary z przypisaniem obszarów do węzłów drzewa. Liczby w każdym obszarze oznaczają jego rodzinę. Zapisana pierwsza liczba od prawej strony to indeks węzła zawierającego ten obszar, następnie w lewo indeks jego rodzica, indeks rodzica rodzica i tak dalej. Węzły z indeksem zaczynającym się od 15 to liście drzewa -- nie posiadają dzieci.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/generators/bsp_tree.png}
 	\caption{Przykład podziału map za pomocą metody Binary Space Partitioning}
@@ -783,7 +791,7 @@ Korzeń drzewa zawsze zawiera obszar całej mapy, następnie w losowym miejscu, 
 Następnie w każdym z obszarów zawartych w liściach drzewa umieszcza się pokój o losowych rozmiarach, przedstawiono to na rysunku \ref{generators:bsp_rooms}.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=12cm]{images/generators/bsp_rooms.png}
 	\caption{Rozmieszczenie pokojów na mapie BSP}
@@ -794,7 +802,7 @@ Następnie w każdym z obszarów zawartych w liściach drzewa umieszcza się pok
 Ostatnim krokiem jest połączenie ze sobą pokojów za pomocą korytarzy. Dzięki użyciu drzewa binarnego można zastosować lepsze rozwiązanie niż "każdy z każdym", zapewniające, że z każdego pokoju można w jakiś sposób dostać się do każdego innego. Przechodząc od przedostatniego poziomu drzewa w górę najpierw łączy się ze sobą po dwa pokoje znajdujące się w obszarzach będącymi dziećmi węzłów z tego poziomu. W kolejnych poziomach dla każdego węzła wybiera się losowych potomków będących liścmi, z obojga dzieci każdego węzła danego poziomu i łączy się zawarte w nich pokoje. Po skończeniu tego procesu wszystkie pokoje są połączone w sposób, który zakłada, że na pewno istnieje połączenie między jednym z pokojów zawartych w obszarze węzła o indeksie 3 a jednym z pokojów z obszaru należącego do węzła 4, gdyż węzły o indeksach 3 i 4 są bezpośrednimi dziećmi węzła o indeksie 1. Na rysunku \ref{generators:bsp_done} można zaobserwować, że w omówionym powyżej przypadku połączony został pokój z liścia o indeksie 18 z pokojem z liścia o indeksie 19.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{images/generators/bsp_done.png}
 	\caption{Mapa wygenerowana za pomocą algorytmu binarnego podziału przestrzeni}
@@ -816,7 +824,7 @@ Ostatnim krokiem jest usunięcie wszystkich niepołączonych ze sobą obszarów,
 Za pomocą manipulowania zasadami tego algorytmu można w łatwy sposób zmieniać wygląd wygenerowanych plansz. Przykładowo na rysunku \ref{generators:ca_diff} po lewej stronie znajduje się mapa wygenerowana według standardowych zasad użytych w grze, a po prawej mapa, w której podłoga uznawana jest za martwą komórkę, a ściana za żywą.
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/generators/ca_diff.png}
 	\caption{Przykład manipulacji zasad algorytmu opartego o automat komórkowy}
@@ -841,7 +849,7 @@ Generator map użyty w poziomie czwartym oparty jest o algorytm Drunkard Walk. W
 W wyniku tego algorytmu otrzymać można mapy, których przykłady zaprezentowano na rysunku \ref{generators:drunkard_walk} 
 
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/generators/drunkard_walk.png}
 	\caption{Przykład działania generatora map opartego o algorytm Drunkard Walk}
@@ -855,7 +863,7 @@ W wyniku tego algorytmu otrzymać można mapy, których przykłady zaprezentowan
 Poziom piąty korzysta z tej samej metody Binary Space Partitioning, co poziom drugi, lecz pokoje w nim zajmują całe obszary przypisane do węzłów będącymi liścmi drzewa. Pozwala to na wygenerowanie mapy podzielonej na pokoje bezspośrednio ze sobą połączone, bez użycia korytarzy. Na rysunku \ref{generators:bsp_diff} zaprezentowano porównanie mapy z poziomu drugiego z mapą z poziomu piątego.
 	
 \FloatBarrier
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=16cm]{images/generators/bsp_diff.png}
 	\caption{Porównanie map poziomu drugiego po lewej i piątego po prawej, wygenerowanych za pomocą metody BSP}
